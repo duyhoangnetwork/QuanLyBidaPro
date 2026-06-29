@@ -208,6 +208,40 @@
       overflow-y: auto;
       line-height: 1.5;
     }
+    /* Trang giới thiệu mới */
+    .about-login-page {
+      position: fixed;
+      inset: 0;
+      background: #0a0a0f;
+      z-index: 10000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      visibility: hidden;
+      opacity: 0;
+      transition: 0.3s;
+      overflow-y: auto;
+    }
+    .about-login-page.show {
+      visibility: visible;
+      opacity: 1;
+    }
+    .about-login-content {
+      background: rgba(15,13,18,0.8);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--accent);
+      border-radius: 28px;
+      padding: 24px;
+      max-width: 500px;
+      width: 100%;
+      color: var(--text);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.7);
+      line-height: 1.6;
+    }
+    .about-login-content h3 { color: var(--accent); margin-bottom: 16px; }
+    .about-login-content p { margin-bottom: 14px; }
     @media (max-width: 480px) {
       .login-box { padding: 28px 20px; border-radius: 28px; }
       .login-header h1 { font-size: 2rem; }
@@ -245,7 +279,6 @@
       <button class="login-btn" id="loginBtn">Đăng nhập</button>
     </div>
     <div class="login-footer">
-      <!-- Bảng giá nhỏ gọn với icon và chữ in đậm -->
       <div class="login-pricing">
         <span><i class="fas fa-tag"></i> <b>60.000đ</b>/tháng</span>
         <span><i class="fas fa-tags"></i> <b>150.000đ</b>/3 tháng</span>
@@ -258,27 +291,19 @@
     </div>
   </div>
 
-  <!-- MODAL GIỚI THIỆU VỀ BIDA PRO (hiện khi click vào dòng chữ "Biết thêm về...") -->
-  <div class="modal-overlay" id="aboutLoginModal">
-    <div class="modal-content" style="max-width:500px; text-align:left;">
-      <h3 style="color:var(--accent);">📖 Về Quản Lý Bida Pro</h3>
-      <p><strong>Quản Lý Bida Pro</strong> là giải pháp quản lý quán bida chuyên nghiệp, được phát triển bởi <strong>Duy Hoang Network</strong>.</p>
-      <h4>✨ Tính năng nổi bật:</h4>
-      <ul style="padding-left:20px;">
-        <li>🎱 Quản lý bàn: mở bàn, tính giờ tự động, thêm đồ ăn/uống.</li>
-        <li>📜 Lịch sử hóa đơn chi tiết, xuất file TXT/CSV.</li>
-        <li>💰 Thống kê doanh thu theo ngày, tháng, từng bàn.</li>
-        <li>📝 Ghi nợ khách hàng, quản lý công nợ dễ dàng.</li>
-        <li>🔔 Thông báo Telegram tức thì khi có giao dịch.</li>
-        <li>🎨 Tùy chỉnh giao diện, theme, hiệu ứng Glass UI.</li>
-        <li>📱 Giao diện responsive, dùng được trên điện thoại, máy tính bảng.</li>
-      </ul>
-      <p>Liên hệ <strong>Duy Hoang Network</strong> qua Zalo <b>0385933633</b> hoặc email <b>duyhoangnetwork@gmail.com</b> để được tư vấn và thuê tài khoản.</p>
-      <button id="closeAboutLoginBtn" class="outline" style="margin-top:16px; width:100%;">Quay lại đăng nhập</button>
+  <!-- TRANG GIỚI THIỆU MỚI (nội dung cập nhật) -->
+  <div class="about-login-page" id="aboutLoginPage">
+    <div class="about-login-content">
+      <h3>Giới thiệu Quản Lý Bida Pro</h3>
+      <p><strong>Quản Lý Bida Pro</strong> là giải pháp quản lý quán bi-a hiện đại, được phát triển bởi <strong>Duy Hoang Network</strong> với mục tiêu mang đến một hệ thống quản lý đơn giản, ổn định và chuyên nghiệp. Phần mềm giúp chủ quán dễ dàng quản lý bàn chơi, tính tiền theo thời gian, thêm đồ ăn - thức uống, lưu lịch sử giao dịch, thống kê doanh thu và theo dõi hoạt động của quán ngay trên một giao diện trực quan.</p>
+      <p>Hệ thống được tối ưu cho cả điện thoại và máy tính, hỗ trợ giao diện hiện đại với nhiều chủ đề màu sắc, chế độ thu nhỏ/mở rộng, thông báo thông minh, quản lý khách nợ, tài khoản có thời hạn, đăng nhập an toàn và đồng bộ thông báo về Telegram theo thời gian thực.</p>
+      <p>Không chỉ tập trung vào tính năng, <strong>Quản Lý Bida Pro</strong> còn được xây dựng với tiêu chí <em>nhanh - đẹp - dễ sử dụng - ổn định</em>, phù hợp từ những quán bi-a nhỏ đến các mô hình kinh doanh chuyên nghiệp.</p>
+      <p><strong>Duy Hoang Network</strong> cam kết không ngừng nâng cấp, bổ sung tính năng và tối ưu trải nghiệm người dùng, mang đến một sản phẩm chất lượng, đáng tin cậy và luôn đồng hành cùng sự phát triển của các chủ quán bi-a.</p>
+      <button id="closeAboutLoginBtn" class="outline" style="margin-top:20px; width:100%;">Quay lại đăng nhập</button>
     </div>
   </div>
 
-  <!-- APP CONTAINER -->
+  <!-- APP CONTAINER (giữ nguyên toàn bộ phần quản lý) -->
   <div class="app-container" style="display: none; flex-direction: column; align-items: center; width: 100%;">
     <!-- Greeting Modal -->
     <div class="greeting-modal-overlay" id="greetingModal">
@@ -445,7 +470,7 @@
       <button class="nav-item" data-page="settings"><i class="fas fa-cog"></i><span>Cài đặt</span></button>
       <button class="nav-item" data-page="support"><i class="fas fa-headset"></i><span>Hỗ trợ</span></button>
     </nav>
-    <!-- MODALS -->
+    <!-- MODALS (giữ nguyên) -->
     <div class="modal-overlay" id="detailModal"><div class="modal-content" id="detailModalContent"></div></div>
     <div class="modal-overlay" id="addItemModal"><div class="modal-content" id="addItemModalContent"></div></div>
     <div class="modal-overlay" id="checkoutModal"><div class="modal-content" id="checkoutModalContent"></div></div>
@@ -493,10 +518,10 @@
     (() => {
       // ==================== CONFIG (ĐA TÀI KHOẢN) ====================
       const USERS = [
-        { username: "Duy Hoang Pro", password: "DuyHoang", durationDays: null },
-        { username: "Vip 30 days", password: "Vip30@Days", durationDays: 30 },
+        { username: "Duy Hoang Network", password: "DuyHoangNetwork@15", durationDays: null },
+        { username: "Vip 30 days", password: "Vip30@days", durationDays: 30 },
         { username: "Vip 3 Month", password: "Vip@3M", durationDays: 120 },
-        { username: "Free2Days", password: "free2daysbidapro", durationDays: 2 }
+        { username: "Free 2 Days", password: "free2daysbidapro", durationDays: 2 }
       ];
       const TELEGRAM = { BOT_TOKEN: "8819232771:AAGFgoz64RtKXkhtVE00lWU950hiwa7QW54", CHAT_ID: "6286372153", ENABLE: true };
       const BANK_BIN = "970422", ACCOUNT_NO = "015223", ACCOUNT_NAME = "DO LE DUY HOANG", DELETE_PASS = "DuyHoang";
@@ -859,14 +884,14 @@
       }
       $('#renameTableModal').addEventListener('click', function(e) { if (e.target === this) this.classList.remove('show'); });
 
-      // Hiển thị modal giới thiệu khi click vào dòng chữ "Biết thêm về Quản Lý Bida Pro"
+      // Hiển thị trang giới thiệu mới khi click vào dòng chữ "Biết thêm về Quản Lý Bida Pro"
       $('#showAboutLoginLink').addEventListener('click', () => {
-        $('#aboutLoginModal').classList.add('show');
+        $('#aboutLoginPage').classList.add('show');
       });
       $('#closeAboutLoginBtn').addEventListener('click', () => {
-        $('#aboutLoginModal').classList.remove('show');
+        $('#aboutLoginPage').classList.remove('show');
       });
-      $('#aboutLoginModal').addEventListener('click', function(e) { if (e.target === this) this.classList.remove('show'); });
+      $('#aboutLoginPage').addEventListener('click', function(e) { if (e.target === this) this.classList.remove('show'); });
 
       function initApp() {
         loadAll();
