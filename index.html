@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes, viewport-fit=cover" />
   <title>Quản Lý Bida Pro</title>
   <style>
-    /* ========== TOÀN BỘ CSS (GIỮ NGUYÊN + CHỈNH SỬA) ========== */
+    /* ========== TOÀN BỘ CSS ========== */
     @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap');
     @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
     :root {
@@ -172,10 +172,10 @@
     .login-box h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 25px; text-align: center; color: #f0eae0; letter-spacing: 1px; text-shadow: 0 0 10px rgba(212,168,83,0.3); }
     .input-group { position: relative; margin-bottom: 18px; }
     .input-group i { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--text-secondary); font-size: 1.1rem; z-index: 2; transition: color 0.3s; }
-    .input-group input { width: 100%; padding: 14px 52px 14px 44px; background: rgba(255,255,255,0.05); border: 1.5px solid rgba(255,255,255,0.12); border-radius: 32px; color: #f0eae0; font-size: 0.95rem; outline: none; transition: all 0.35s; box-shadow: inset 0 2px 4px rgba(0,0,0,0.2); font-family: 'Inter', sans-serif; }
+    .input-group input { width: 100%; padding: 14px 58px 14px 44px; background: rgba(255,255,255,0.05); border: 1.5px solid rgba(255,255,255,0.12); border-radius: 32px; color: #f0eae0; font-size: 0.95rem; outline: none; transition: all 0.35s; box-shadow: inset 0 2px 4px rgba(0,0,0,0.2); font-family: 'Inter', sans-serif; }
     .input-group input:focus { border-color: var(--accent); box-shadow: 0 0 18px rgba(212,168,83,0.5), inset 0 1px 3px rgba(0,0,0,0.3); background: rgba(255,255,255,0.08); }
     .input-group input:focus+i, .input-group input:focus~i { color: var(--accent); }
-    .toggle-password { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); cursor: pointer; color: var(--text-secondary); font-size: 1.1rem; z-index: 3; transition: color 0.3s; background: none; border: none; padding: 4px; display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; }
+    .toggle-password { position: absolute; right: 6px; top: 50%; transform: translateY(-50%); cursor: pointer; color: var(--text-secondary); font-size: 1.1rem; z-index: 3; transition: color 0.3s; background: none; border: none; padding: 4px; display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; }
     .toggle-password:hover { color: var(--accent); background: rgba(255,255,255,0.05); }
     .remember-row { display: flex; align-items: center; gap: 10px; margin-bottom: 22px; font-size: 0.85rem; color: var(--text-secondary); cursor: pointer; user-select: none; }
     .remember-row input[type="checkbox"] { appearance: none; -webkit-appearance: none; width: 20px; height: 20px; border: 2px solid rgba(212,168,83,0.5); border-radius: 6px; background: rgba(255,255,255,0.05); cursor: pointer; position: relative; transition: all 0.2s; flex-shrink: 0; }
@@ -208,7 +208,6 @@
       overflow-y: auto;
       line-height: 1.5;
     }
-    /* Trang giới thiệu mới */
     .about-login-page {
       position: fixed;
       inset: 0;
@@ -224,10 +223,7 @@
       transition: 0.3s;
       overflow-y: auto;
     }
-    .about-login-page.show {
-      visibility: visible;
-      opacity: 1;
-    }
+    .about-login-page.show { visibility: visible; opacity: 1; }
     .about-login-content {
       background: rgba(15,13,18,0.8);
       backdrop-filter: blur(20px);
@@ -245,7 +241,7 @@
     @media (max-width: 480px) {
       .login-box { padding: 28px 20px; border-radius: 28px; }
       .login-header h1 { font-size: 2rem; }
-      .input-group input { padding: 12px 46px 12px 38px; font-size: 0.9rem; }
+      .input-group input { padding: 12px 52px 12px 38px; font-size: 0.9rem; }
       .login-btn { padding: 13px; font-size: 0.95rem; }
     }
   </style>
@@ -254,7 +250,7 @@
   <canvas class="stars" id="starsCanvas" style="display:none;"></canvas>
   <div class="toast-container" id="toastContainer"></div>
 
-  <!-- LOGIN PAGE NÂNG CẤP -->
+  <!-- LOGIN PAGE -->
   <div class="login-page" id="loginPage">
     <canvas class="login-stars" id="loginStarsCanvas"></canvas>
     <div class="login-header">
@@ -291,21 +287,19 @@
     </div>
   </div>
 
-  <!-- TRANG GIỚI THIỆU MỚI (nội dung cập nhật) -->
+  <!-- ABOUT LOGIN PAGE -->
   <div class="about-login-page" id="aboutLoginPage">
     <div class="about-login-content">
       <h3>Giới thiệu Quản Lý Bida Pro</h3>
-      <p><strong>Quản Lý Bida Pro</strong> là giải pháp quản lý quán bi-a hiện đại, được phát triển bởi <strong>Duy Hoang Network</strong> với mục tiêu mang đến một hệ thống quản lý đơn giản, ổn định và chuyên nghiệp. Phần mềm giúp chủ quán dễ dàng quản lý bàn chơi, tính tiền theo thời gian, thêm đồ ăn - thức uống, lưu lịch sử giao dịch, thống kê doanh thu và theo dõi hoạt động của quán ngay trên một giao diện trực quan.</p>
+      <p><strong>Quản Lý Bida Pro</strong> là giải pháp quản lý quán bi-a hiện đại, được phát triển bởi <strong>Duy Hoang Network</strong> với mục tiêu mang đến một hệ thống quản lý đơn giản, ổn định và chuyên nghiệp.</p>
       <p>Hệ thống được tối ưu cho cả điện thoại và máy tính, hỗ trợ giao diện hiện đại với nhiều chủ đề màu sắc, chế độ thu nhỏ/mở rộng, thông báo thông minh, quản lý khách nợ, tài khoản có thời hạn, đăng nhập an toàn và đồng bộ thông báo về Telegram theo thời gian thực.</p>
-      <p>Không chỉ tập trung vào tính năng, <strong>Quản Lý Bida Pro</strong> còn được xây dựng với tiêu chí <em>nhanh - đẹp - dễ sử dụng - ổn định</em>, phù hợp từ những quán bi-a nhỏ đến các mô hình kinh doanh chuyên nghiệp.</p>
-      <p><strong>Duy Hoang Network</strong> cam kết không ngừng nâng cấp, bổ sung tính năng và tối ưu trải nghiệm người dùng, mang đến một sản phẩm chất lượng, đáng tin cậy và luôn đồng hành cùng sự phát triển của các chủ quán bi-a.</p>
+      <p><strong>Duy Hoang Network</strong> cam kết không ngừng nâng cấp, bổ sung tính năng và tối ưu trải nghiệm người dùng.</p>
       <button id="closeAboutLoginBtn" class="outline" style="margin-top:20px; width:100%;">Quay lại đăng nhập</button>
     </div>
   </div>
 
-  <!-- APP CONTAINER (giữ nguyên toàn bộ phần quản lý) -->
+  <!-- APP CONTAINER -->
   <div class="app-container" style="display: none; flex-direction: column; align-items: center; width: 100%;">
-    <!-- Greeting Modal -->
     <div class="greeting-modal-overlay" id="greetingModal">
       <div class="greeting-modal-content">
         <div class="greeting-shop-name" id="greetingShopName">BIDA PRO</div>
@@ -318,11 +312,11 @@
       <div class="header-card glass-card">
         <div class="shop-name" id="shopNameDisplay">BIDA PRO</div>
         <div class="rate-badge" id="rateDisplay">50.000đ / giờ</div>
-        <div class="slogan">Quản lý chuyên nghiệp • Tính giờ chính xác • Giao diện hiện đại • Hỗ trợ tận tâm</div>
+        <div class="slogan" id="homeSlogan">Quản lý chuyên nghiệp • Tính giờ chính xác • Giao diện hiện đại • Hỗ trợ tận tâm</div>
       </div>
       <div class="top-actions">
-        <button id="btnAbout" class="btn-about"><i class="fas fa-info-circle"></i> Biết thêm</button>
-        <button id="btnDebtors" class="btn-debtors"><i class="fas fa-list-ul"></i> Khách nợ (<span id="debtorCount">0</span>)</button>
+        <button id="btnAbout" class="btn-about"><i class="fas fa-info-circle"></i> <span id="btnAboutLabel">Biết thêm</span></button>
+        <button id="btnDebtors" class="btn-debtors"><i class="fas fa-list-ul"></i> <span id="debtorsLabel">Khách nợ</span> (<span id="debtorCount">0</span>)</button>
         <button id="toggleCompactBtn" class="outline" style="padding:6px 14px; font-size:0.75rem;">
           <i class="fas fa-expand-alt"></i> <span id="compactLabel">Thu nhỏ</span>
         </button>
@@ -332,65 +326,72 @@
     <!-- PAGE ABOUT -->
     <div class="page" id="page-about">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-        <h2>📖 Giới thiệu</h2>
-        <button id="btnBackFromAbout" class="outline" style="padding:6px 14px; font-size:0.8rem;"><i class="fas fa-arrow-left"></i> Quay lại</button>
+        <h2 id="aboutTitle">📖 Giới thiệu</h2>
+        <button id="btnBackFromAbout" class="outline" style="padding:6px 14px; font-size:0.8rem;"><i class="fas fa-arrow-left"></i> <span id="backFromAboutLabel">Quay lại</span></button>
       </div>
       <div class="about-section glass-card">
-        <h3>🎱 Về Bida Pro</h3>
-        <p>Bida Pro là nền tảng quản lý quán Bida được phát triển với mục tiêu mang đến giải pháp quản lý hiện đại, đơn giản và hiệu quả cho các quán Bida tại Việt Nam.</p>
-        <p>Chúng tôi tập trung vào trải nghiệm người dùng với giao diện trực quan, tốc độ xử lý nhanh, dữ liệu được lưu trữ an toàn trên thiết bị và các tính năng được tối ưu theo nhu cầu thực tế của chủ quán.</p>
-        <h3>🌐 Duy Hoang Network</h3>
-        <p>Duy Hoang Network là đội ngũ phát triển và vận hành chính thức của Bida Pro.</p>
-        <ul><li>🎯 Liên tục cập nhật</li><li>🔒 Bảo mật dữ liệu</li><li>⚡ Tối ưu tốc độ</li><li>🛠️ Hỗ trợ tận tâm</li></ul>
-        <h3>🤝 Cam kết</h3>
-        <p>Bida Pro sẽ tiếp tục nâng cấp định kỳ.</p>
+        <h3 id="aboutBidaTitle">🎱 Về Bida Pro</h3>
+        <p id="aboutBidaDesc1">Bida Pro là nền tảng quản lý quán Bida được phát triển với mục tiêu mang đến giải pháp quản lý hiện đại, đơn giản và hiệu quả cho các quán Bida tại Việt Nam.</p>
+        <p id="aboutBidaDesc2">Chúng tôi tập trung vào trải nghiệm người dùng với giao diện trực quan, tốc độ xử lý nhanh, dữ liệu được lưu trữ an toàn trên thiết bị và các tính năng được tối ưu theo nhu cầu thực tế của chủ quán.</p>
+        <h3 id="aboutNetworkTitle">🌐 Duy Hoang Network</h3>
+        <p id="aboutNetworkDesc">Duy Hoang Network là đội ngũ phát triển và vận hành chính thức của Bida Pro.</p>
+        <ul><li id="aboutLi1">🎯 Liên tục cập nhật</li><li id="aboutLi2">🔒 Bảo mật dữ liệu</li><li id="aboutLi3">⚡ Tối ưu tốc độ</li><li id="aboutLi4">🛠️ Hỗ trợ tận tâm</li></ul>
+        <h3 id="aboutCommitTitle">🤝 Cam kết</h3>
+        <p id="aboutCommitDesc">Bida Pro sẽ tiếp tục nâng cấp định kỳ.</p>
         <p style="text-align:center; font-size:0.7rem; opacity:0.7;">© 2026 Bida Pro. Developed by Duy Hoang Network.</p>
       </div>
     </div>
     <!-- PAGE HISTORY -->
     <div class="page" id="page-history">
-      <h2 style="margin-bottom:8px;">📜 Lịch sử hóa đơn</h2>
+      <h2 style="margin-bottom:8px;" id="historyTitle">📜 Lịch sử hóa đơn</h2>
       <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px;">
-        <select id="filterTableSelect"><option value="all">Tất cả bàn</option></select>
-        <button id="applyFilterBtn" class="warning">Lọc</button>
+        <select id="filterTableSelect"><option value="all" id="filterAllOpt">Tất cả bàn</option></select>
+        <button id="applyFilterBtn" class="warning" id="filterBtn">Lọc</button>
         <button id="exportTxtBtn" class="outline">📄 TXT</button>
         <button id="exportCsvBtn" class="outline">📊 CSV</button>
-        <button id="deleteHistoryBtn" class="danger">🗑 Xóa</button>
+        <button id="deleteHistoryBtn" class="danger" id="deleteHistoryLabel">🗑 Xóa</button>
       </div>
       <div id="historyList" style="max-height:60vh; overflow-y:auto;"></div>
     </div>
     <!-- PAGE REVENUE -->
     <div class="page" id="page-revenue">
-      <h2 style="margin-bottom:8px;">💰 Doanh thu</h2>
+      <h2 style="margin-bottom:8px;" id="revenueTitle">💰 Doanh thu</h2>
       <div id="statsSummary" style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;"></div>
       <canvas id="revenueChart" height="160" style="background:rgba(255,255,255,0.04); border-radius:18px; width:100%;"></canvas>
-      <h3 style="margin:12px 0 8px;">📊 Thống kê từng bàn</h3>
+      <h3 style="margin:12px 0 8px;" id="perTableStatsTitle">📊 Thống kê từng bàn</h3>
       <div id="perTableStatsContainer" style="display:flex; flex-direction:column; gap:8px;"></div>
     </div>
     <!-- PAGE MENU -->
     <div class="page" id="page-menu">
-      <h2 style="margin-bottom:8px;">🍽 Menu đồ ăn / thức uống</h2>
+      <h2 style="margin-bottom:8px;" id="menuTitle">🍽 Menu đồ ăn / thức uống</h2>
       <div id="menuListContainer" style="display:flex; flex-direction:column; gap:8px;"></div>
     </div>
     <!-- PAGE SETTINGS -->
     <div class="page" id="page-settings">
-      <h2 style="margin-bottom:8px;">⚙️ Cài đặt</h2>
+      <h2 style="margin-bottom:8px;" id="settingsTitle">⚙️ Cài đặt</h2>
       <div class="stat-card" style="margin-bottom:10px;">
-        <label><strong>🏷 Tên quán</strong></label>
+        <label><strong id="shopNameLabel">🏷 Tên quán</strong></label>
         <input type="text" id="shopNameInput" placeholder="BIDA HOÀNG LONG" style="margin-top:4px;">
-        <button id="saveShopNameBtn" class="primary" style="margin-top:6px;">Lưu tên</button>
+        <button id="saveShopNameBtn" class="primary" style="margin-top:6px;" id="saveShopNameLabel">Lưu tên</button>
       </div>
       <div class="stat-card" style="margin-bottom:10px;">
-        <label><strong>💵 Giá giờ (VNĐ)</strong></label>
+        <label><strong id="hourlyRateLabel">💵 Giá giờ (VNĐ)</strong></label>
         <input type="number" id="hourlyRateInput" placeholder="50000" style="margin-top:4px;">
-        <button id="saveRateBtn" class="primary" style="margin-top:6px;">Lưu giá</button>
+        <button id="saveRateBtn" class="primary" style="margin-top:6px;" id="saveRateLabel">Lưu giá</button>
       </div>
       <div class="stat-card" style="margin-bottom:10px;" id="accountExpirySection">
-        <label><strong>⏳ Thời hạn tài khoản</strong></label>
+        <label><strong id="expiryTitle">⏳ Thời hạn tài khoản</strong></label>
         <div id="accountExpiryInfo" style="margin-top:6px; font-size:0.85rem;"></div>
       </div>
       <div class="stat-card" style="margin-bottom:10px;">
-        <label><strong>🎨 Giao diện</strong></label>
+        <label><strong id="langLabel">🌐 Ngôn ngữ</strong></label>
+        <select id="langSelect" style="margin-top:4px;">
+          <option value="vi">🇻🇳 Tiếng Việt</option>
+          <option value="en">🇬🇧 English</option>
+        </select>
+      </div>
+      <div class="stat-card" style="margin-bottom:10px;">
+        <label><strong id="themeLabel">🎨 Giao diện</strong></label>
         <select id="themeSelect" style="margin-top:4px;">
           <option value="dark">🌙 Mặc định</option>
           <option value="light">☀️ Sáng</option>
@@ -405,93 +406,78 @@
         </select>
       </div>
       <div class="stat-card" style="margin-bottom:10px; display:flex; justify-content:space-between; align-items:center;">
-        <span><strong>🪟 Glass UI</strong></span>
+        <span id="glassLabel"><strong>🪟 Glass UI</strong></span>
         <label class="toggle-switch"><input type="checkbox" id="glassToggle"><span class="slider"></span></label>
       </div>
       <div class="stat-card" style="margin-bottom:10px; display:flex; justify-content:space-between; align-items:center;">
-        <span><strong>🌌 Nền vũ trụ</strong></span>
+        <span id="spaceLabel"><strong>🌌 Nền vũ trụ</strong></span>
         <label class="toggle-switch"><input type="checkbox" id="spaceToggle"><span class="slider"></span></label>
       </div>
       <div class="settings-card glass-card" id="openTableManagerBtn">
         <div class="settings-card-icon">🎱</div>
         <div class="settings-card-info">
-          <div class="settings-card-title">Quản lý bàn</div>
-          <div class="settings-card-desc">Thêm, xóa, đổi tên, sắp xếp bàn</div>
+          <div class="settings-card-title" id="tableManagerTitle">Quản lý bàn</div>
+          <div class="settings-card-desc" id="tableManagerDesc">Thêm, xóa, đổi tên, sắp xếp bàn</div>
         </div>
       </div>
       <div class="settings-card glass-card" id="openMenuManagerBtn">
         <div class="settings-card-icon">🍽️</div>
         <div class="settings-card-info">
-          <div class="settings-card-title">Quản lý Menu</div>
-          <div class="settings-card-desc">Thêm, sửa, xóa món ăn / đồ uống</div>
+          <div class="settings-card-title" id="menuManagerTitle">Quản lý Menu</div>
+          <div class="settings-card-desc" id="menuManagerDesc">Thêm, sửa, xóa món ăn / đồ uống</div>
         </div>
       </div>
+      <!-- Nút ĐĂNG XUẤT -->
+      <button id="logoutBtn" class="danger" style="width:100%; margin-top:16px; padding:14px;">
+        <i class="fas fa-sign-out-alt"></i> <span id="logoutLabel">Đăng xuất</span>
+      </button>
     </div>
     <!-- PAGE SUPPORT -->
     <div class="page" id="page-support">
-      <h2 style="margin-bottom:12px;">🛟 Hỗ trợ</h2>
+      <h2 style="margin-bottom:12px;" id="supportTitle">🛟 Hỗ trợ</h2>
       <div class="support-card">
-        <h3><i class="fas fa-phone-alt"></i> Liên hệ nhanh</h3>
+        <h3><i class="fas fa-phone-alt"></i> <span id="quickContactLabel">Liên hệ nhanh</span></h3>
         <div class="contact-buttons">
           <a href="https://zalo.me/0385933633" target="_blank" class="contact-btn zalo"><i class="fas fa-comment"></i> Zalo</a>
           <a href="tel:0964493987" class="contact-btn hotline"><i class="fas fa-phone-alt"></i> Hotline</a>
           <a href="mailto:duyhoangnetwork@gmail.com" class="contact-btn email"><i class="fas fa-envelope"></i> Email</a>
         </div>
-        <p style="font-size:0.8rem; opacity:0.8;">Bấm vào nút tương ứng để liên hệ nhanh với đội ngũ hỗ trợ.</p>
       </div>
       <div class="support-card">
-        <h3><i class="fas fa-users"></i> Đội ngũ phát triển</h3>
-        <p>Duy Hoang Network là đội ngũ chịu trách nhiệm nghiên cứu, phát triển và vận hành hệ thống Bida Pro.</p>
-        <p>Với định hướng xây dựng các giải pháp quản lý hiện đại, đơn giản và hiệu quả, chúng tôi không ngừng cải tiến sản phẩm dựa trên nhu cầu thực tế của các chủ quán Bida. Mỗi tính năng đều được thiết kế nhằm giúp việc quản lý trở nên nhanh chóng, chính xác và thuận tiện hơn.</p>
-        <p>Đội ngũ luôn chú trọng đến hiệu năng, tính ổn định, bảo mật dữ liệu và trải nghiệm người dùng, đồng thời liên tục cập nhật những cải tiến mới để mang đến một nền tảng quản lý chuyên nghiệp và đáng tin cậy.</p>
-        <p>Chúng tôi cam kết đồng hành lâu dài cùng khách hàng thông qua việc duy trì, nâng cấp và phát triển sản phẩm một cách bền vững.</p>
-      </div>
-      <div class="support-card">
-        <h3><i class="fas fa-headset"></i> Trung tâm hỗ trợ</h3>
-        <p>Nếu gặp khó khăn trong quá trình sử dụng, đội ngũ Duy Hoang Network luôn sẵn sàng hỗ trợ.</p>
-        <ul style="list-style:none;padding-left:6px;">
-          <li>💬 Giải đáp thắc mắc khi sử dụng hệ thống.</li>
-          <li>🛠️ Hỗ trợ khắc phục lỗi và sự cố kỹ thuật.</li>
-          <li>🔄 Hướng dẫn cập nhật lên phiên bản mới.</li>
-          <li>⚙️ Hỗ trợ cài đặt và cấu hình theo nhu cầu.</li>
-          <li>💡 Tiếp nhận góp ý để cải thiện sản phẩm.</li>
-          <li>🚀 Tư vấn và phát triển thêm các tính năng theo yêu cầu.</li>
-        </ul>
-        <p>Mọi phản hồi của Quý khách đều được ghi nhận và xem là cơ sở quan trọng để tiếp tục hoàn thiện Bida Pro. Chúng tôi luôn nỗ lực mang đến dịch vụ hỗ trợ nhanh chóng, tận tâm và chuyên nghiệp.</p>
-        <p style="text-align:center; margin-top:10px;"><em>Duy Hoang Network xin chân thành cảm ơn sự tin tưởng và đồng hành của Quý khách!</em></p>
+        <h3><i class="fas fa-users"></i> <span id="devTeamLabel">Đội ngũ phát triển</span></h3>
+        <p id="devTeamDesc1">Duy Hoang Network là đội ngũ chịu trách nhiệm nghiên cứu, phát triển và vận hành hệ thống Bida Pro.</p>
+        <p id="devTeamDesc2">Chúng tôi cam kết đồng hành lâu dài cùng khách hàng.</p>
       </div>
     </div>
     <!-- BOTTOM NAVIGATION -->
     <nav class="nav-bar glass-card">
-      <button class="nav-item active" data-page="home"><i class="fas fa-home"></i><span>Trang chủ</span></button>
-      <button class="nav-item" data-page="history"><i class="fas fa-history"></i><span>Lịch sử</span></button>
-      <button class="nav-item" data-page="revenue"><i class="fas fa-chart-bar"></i><span>Doanh thu</span></button>
-      <button class="nav-item" data-page="menu"><i class="fas fa-utensils"></i><span>Menu</span></button>
-      <button class="nav-item" data-page="settings"><i class="fas fa-cog"></i><span>Cài đặt</span></button>
-      <button class="nav-item" data-page="support"><i class="fas fa-headset"></i><span>Hỗ trợ</span></button>
+      <button class="nav-item active" data-page="home"><i class="fas fa-home"></i><span id="navHome">Trang chủ</span></button>
+      <button class="nav-item" data-page="history"><i class="fas fa-history"></i><span id="navHistory">Lịch sử</span></button>
+      <button class="nav-item" data-page="revenue"><i class="fas fa-chart-bar"></i><span id="navRevenue">Doanh thu</span></button>
+      <button class="nav-item" data-page="menu"><i class="fas fa-utensils"></i><span id="navMenu">Menu</span></button>
+      <button class="nav-item" data-page="settings"><i class="fas fa-cog"></i><span id="navSettings">Cài đặt</span></button>
+      <button class="nav-item" data-page="support"><i class="fas fa-headset"></i><span id="navSupport">Hỗ trợ</span></button>
     </nav>
-    <!-- MODALS (giữ nguyên) -->
+    <!-- MODALS -->
     <div class="modal-overlay" id="detailModal"><div class="modal-content" id="detailModalContent"></div></div>
     <div class="modal-overlay" id="addItemModal"><div class="modal-content" id="addItemModalContent"></div></div>
     <div class="modal-overlay" id="checkoutModal"><div class="modal-content" id="checkoutModalContent"></div></div>
     <div class="modal-overlay" id="qrModal"><div class="modal-content" style="text-align:center;"><h3>📱 Quét mã QR</h3><img id="qrImage" src="" alt="QR" style="max-width:200px; border-radius:18px; background:#fff; padding:8px; margin:8px auto;"><p id="qrInfo"></p><button id="confirmQrBtn" class="success">✅ Đã thanh toán</button><button id="closeQrBtn" class="danger" style="margin-top:6px;">Đóng</button></div></div>
-    <div class="modal-overlay" id="deleteModal"><div class="modal-content"><h3>⚠ Xóa lịch sử</h3><input type="password" id="deletePass" placeholder="Mật khẩu" style="margin:8px 0;"><button id="confirmDeleteBtn" class="danger">Xóa</button><button id="cancelDeleteBtn" class="outline" style="margin-left:6px;">Hủy</button></div></div>
+    <div class="modal-overlay" id="deleteModal"><div class="modal-content"><h3 id="deleteHistoryModalTitle">⚠ Xóa lịch sử</h3><input type="password" id="deletePass" placeholder="Mật khẩu" style="margin:8px 0;"><button id="confirmDeleteBtn" class="danger">Xóa</button><button id="cancelDeleteBtn" class="outline" style="margin-left:6px;">Hủy</button></div></div>
     <div class="modal-overlay" id="menuItemModal"><div class="modal-content"><h3 id="menuItemModalTitle">➕ Thêm món</h3><input type="text" id="menuItemIcon" placeholder="Icon (emoji)" maxlength="4" style="margin:6px 0;"><input type="text" id="menuItemName" placeholder="Tên món" style="margin:6px 0;"><input type="number" id="menuItemPrice" placeholder="Giá (VNĐ)" style="margin:6px 0;"><button id="saveMenuItemBtn" class="primary">Lưu</button><button id="cancelMenuItemBtn" class="outline" style="margin-left:6px;">Hủy</button></div></div>
-    <div class="modal-overlay" id="debtModal"><div class="modal-content"><h3>📝 Ghi nợ - <span id="debtTableName"></span></h3><input type="text" id="debtCustomerName" placeholder="Tên khách" style="margin:6px 0;"><input type="text" id="debtPhone" placeholder="Số điện thoại (không bắt buộc)" style="margin:6px 0;"><input type="text" id="debtNote" placeholder="Ghi chú (không bắt buộc)" style="margin:6px 0;"><button id="confirmDebtBtn" class="primary">✅ Xác nhận ghi nợ</button><button id="cancelDebtBtn" class="danger" style="margin-top:6px;">Hủy</button></div></div>
-    <div class="modal-overlay" id="debtorsListModal"><div class="modal-content" style="max-width:500px;"><h3>📋 Khách nợ</h3><div style="display:flex; gap:6px; flex-wrap:wrap; margin:8px 0;"><input type="text" id="debtSearch" placeholder="Tìm theo tên" style="flex:1;"><select id="debtFilterStatus"><option value="all">Tất cả</option><option value="unpaid">Chưa thanh toán</option><option value="paid">Đã thanh toán</option></select><button id="debtExportTxt" class="outline">📄 TXT</button><button id="debtExportCsv" class="outline">📊 CSV</button><button id="debtClearAll" class="danger">🗑 Xóa tất cả</button></div><div id="debtStats" style="font-size:0.8rem; margin-bottom:8px;"></div><div id="debtorsListContent" style="max-height:50vh; overflow-y:auto;"></div><button id="closeDebtorsListBtn" class="outline" style="margin-top:10px; width:100%;">Đóng</button></div></div>
+    <div class="modal-overlay" id="debtModal"><div class="modal-content"><h3 id="debtModalTitle">📝 Ghi nợ - <span id="debtTableName"></span></h3><input type="text" id="debtCustomerName" placeholder="Tên khách" style="margin:6px 0;"><input type="text" id="debtPhone" placeholder="Số điện thoại (không bắt buộc)" style="margin:6px 0;"><input type="text" id="debtNote" placeholder="Ghi chú (không bắt buộc)" style="margin:6px 0;"><button id="confirmDebtBtn" class="primary">✅ Xác nhận ghi nợ</button><button id="cancelDebtBtn" class="danger" style="margin-top:6px;">Hủy</button></div></div>
+    <div class="modal-overlay" id="debtorsListModal"><div class="modal-content" style="max-width:500px;"><h3 id="debtorsListTitle">📋 Khách nợ</h3><div style="display:flex; gap:6px; flex-wrap:wrap; margin:8px 0;"><input type="text" id="debtSearch" placeholder="Tìm theo tên" style="flex:1;"><select id="debtFilterStatus"><option value="all">Tất cả</option><option value="unpaid">Chưa thanh toán</option><option value="paid">Đã thanh toán</option></select><button id="debtExportTxt" class="outline">📄 TXT</button><button id="debtExportCsv" class="outline">📊 CSV</button><button id="debtClearAll" class="danger">🗑 Xóa tất cả</button></div><div id="debtStats" style="font-size:0.8rem; margin-bottom:8px;"></div><div id="debtorsListContent" style="max-height:50vh; overflow-y:auto;"></div><button id="closeDebtorsListBtn" class="outline" style="margin-top:10px; width:100%;">Đóng</button></div></div>
     <div class="modal-overlay" id="debtDetailModal"><div class="modal-content" id="debtDetailContent"></div></div>
-    <div class="modal-overlay" id="tableManagerModal"><div class="modal-content"><h3>🎱 Quản lý bàn</h3><div id="tableManagerContent" style="max-height:50vh; overflow-y:auto;"></div><div style="display:flex; gap:8px; margin-top:10px;"><input type="text" id="newTableName" placeholder="Tên bàn mới" style="flex:1;"><button id="addTableBtn" class="success">Thêm</button></div><button id="closeTableManagerBtn" class="outline" style="margin-top:10px; width:100%;">Đóng</button></div></div>
-    <div class="modal-overlay" id="menuManagerModal"><div class="modal-content"><h3>🍽️ Quản lý Menu</h3><div id="menuManagerList" style="max-height:50vh; overflow-y:auto;"></div><button id="openAddMenuItemFromManager" class="success" style="margin-top:10px;">➕ Thêm món mới</button><button id="closeMenuManagerBtn" class="outline" style="margin-top:6px; width:100%;">Đóng</button></div></div>
-    <!-- Modal nhập tên quán lần đầu -->
+    <div class="modal-overlay" id="tableManagerModal"><div class="modal-content"><h3 id="tableManagerModalTitle">🎱 Quản lý bàn</h3><div id="tableManagerContent" style="max-height:50vh; overflow-y:auto;"></div><div style="display:flex; gap:8px; margin-top:10px;"><input type="text" id="newTableName" placeholder="Tên bàn mới" style="flex:1;"><button id="addTableBtn" class="success">Thêm</button></div><button id="closeTableManagerBtn" class="outline" style="margin-top:10px; width:100%;">Đóng</button></div></div>
+    <div class="modal-overlay" id="menuManagerModal"><div class="modal-content"><h3 id="menuManagerModalTitle">🍽️ Quản lý Menu</h3><div id="menuManagerList" style="max-height:50vh; overflow-y:auto;"></div><button id="openAddMenuItemFromManager" class="success" style="margin-top:10px;">➕ Thêm món mới</button><button id="closeMenuManagerBtn" class="outline" style="margin-top:6px; width:100%;">Đóng</button></div></div>
     <div class="modal-overlay" id="firstShopNameModal">
       <div class="modal-content">
-        <h3>🏪 Chào mừng đến với Bida Pro!</h3>
-        <p>Vui lòng nhập tên quán của bạn để bắt đầu:</p>
+        <h3 id="welcomeModalTitle">🏪 Chào mừng đến với Bida Pro!</h3>
+        <p id="welcomeModalDesc">Vui lòng nhập tên quán của bạn để bắt đầu:</p>
         <input type="text" id="firstShopNameInput" placeholder="Nhập tên quán..." style="margin:10px 0;">
         <button id="saveFirstShopNameBtn" class="success">Lưu tên</button>
       </div>
     </div>
-    <!-- Modal xác nhận chung -->
     <div class="modal-overlay" id="confirmModal">
       <div class="modal-content">
         <p id="confirmMessage"></p>
@@ -501,10 +487,9 @@
         </div>
       </div>
     </div>
-    <!-- Modal nhập tên bàn -->
     <div class="modal-overlay" id="renameTableModal">
       <div class="modal-content">
-        <h3>✏️ Đổi tên bàn</h3>
+        <h3 id="renameTableModalTitle">✏️ Đổi tên bàn</h3>
         <input type="text" id="renameTableInput" placeholder="Nhập tên mới..." style="margin:10px 0;">
         <div style="display:flex; gap:8px; justify-content:flex-end;">
           <button id="saveRenameTableBtn" class="success">Lưu</button>
@@ -516,12 +501,235 @@
 
   <script>
     (() => {
-      // ==================== CONFIG (ĐA TÀI KHOẢN) ====================
+      // ==================== ĐA NGÔN NGỮ ====================
+      const LANG = {
+        vi: {
+          loginTitle: "Đăng nhập hệ thống",
+          loginUsername: "Tên đăng nhập",
+          loginPassword: "Mật khẩu",
+          rememberMe: "Ghi nhớ đăng nhập trên thiết bị này",
+          loginBtn: "Đăng nhập",
+          loginPricing1: "60.000đ/tháng",
+          loginPricing2: "150.000đ/3 tháng",
+          noAccount: "Nếu bạn chưa có tài khoản hãy liên hệ",
+          knowMore: "Biết thêm về Quản Lý Bida Pro",
+          aboutLoginTitle: "Giới thiệu Quản Lý Bida Pro",
+          aboutLoginDesc: "Quản Lý Bida Pro là giải pháp quản lý quán bi-a hiện đại...",
+          backToLogin: "Quay lại đăng nhập",
+          home: "Trang chủ",
+          history: "Lịch sử",
+          revenue: "Doanh thu",
+          menu: "Menu",
+          settings: "Cài đặt",
+          support: "Hỗ trợ",
+          shopName: "Tên quán",
+          hourlyRate: "Giá giờ",
+          save: "Lưu",
+          tableManager: "Quản lý bàn",
+          menuManager: "Quản lý Menu",
+          logout: "Đăng xuất",
+          playing: "Đang chơi",
+          idle: "Trống",
+          start: "Bắt đầu",
+          addItem: "Thêm đồ",
+          debt: "Ghi nợ",
+          checkout: "Tính tiền",
+          hourPrice: "Giờ",
+          total: "Tổng",
+          noItems: "Chưa có đồ",
+          confirm: "Xác nhận",
+          cancel: "Hủy",
+          filter: "Lọc",
+          exportTxt: "TXT",
+          exportCsv: "CSV",
+          deleteHistory: "Xóa",
+          allTables: "Tất cả bàn",
+          today: "Hôm nay",
+          month: "Tháng",
+          totalAll: "Tổng",
+          perTableStats: "Thống kê từng bàn",
+          about: "Biết thêm",
+          back: "Quay lại",
+          compact: "Thu nhỏ",
+          expand: "Mở rộng",
+          debtors: "Khách nợ",
+          langLabel: "Ngôn ngữ",
+          themeLabel: "Giao diện",
+          glassLabel: "Glass UI",
+          spaceLabel: "Nền vũ trụ",
+          expiryTitle: "Thời hạn tài khoản",
+          quickContact: "Liên hệ nhanh",
+          devTeam: "Đội ngũ phát triển",
+          saveShopName: "Lưu tên",
+          saveRate: "Lưu giá",
+          deletePass: "Mật khẩu",
+          aboutTitle: "Giới thiệu",
+          aboutBida: "Về Bida Pro",
+          aboutBidaDesc1: "Bida Pro là nền tảng quản lý quán Bida...",
+          aboutNetwork: "Duy Hoang Network",
+          aboutCommit: "Cam kết",
+          toastLoginFail: "Sai tên đăng nhập hoặc mật khẩu",
+          toastExpired: "Tài khoản đã hết hạn",
+          toastPaymentOk: "Đã thanh toán",
+          toastItemAdded: "Đã thêm",
+          toastDebtOk: "Đã ghi nợ",
+          toastTableAdded: "Đã thêm bàn mới",
+          toastTableDeleted: "Đã xóa bàn",
+          toastTableRenamed: "Đã đổi tên bàn",
+          toastMenuSaved: "Đã lưu món",
+          toastHistoryDeleted: "Đã xóa lịch sử",
+          toastShopNameSaved: "Đã lưu tên quán",
+          toastRateSaved: "Đã cập nhật giá giờ",
+          greetOk: "Đã hiểu",
+          tablePlaying: "Bàn đang hoạt động, không thể xóa",
+          enterTableName: "Nhập tên bàn",
+          enterCustomerName: "Vui lòng nhập tên khách",
+          deleteTableConfirm: "Xóa bàn",
+          deleteDebtConfirm: "Xóa khoản nợ này?",
+          payDebtConfirm: "Xác nhận khách đã thanh toán?",
+        },
+        en: {
+          loginTitle: "System Login",
+          loginUsername: "Username",
+          loginPassword: "Password",
+          rememberMe: "Remember me on this device",
+          loginBtn: "Sign In",
+          loginPricing1: "60,000đ/month",
+          loginPricing2: "150,000đ/3 months",
+          noAccount: "If you don't have an account, contact",
+          knowMore: "Learn more about Bida Pro Manager",
+          aboutLoginTitle: "About Bida Pro Manager",
+          aboutLoginDesc: "Bida Pro Manager is a modern billiard management solution...",
+          backToLogin: "Back to login",
+          home: "Home",
+          history: "History",
+          revenue: "Revenue",
+          menu: "Menu",
+          settings: "Settings",
+          support: "Support",
+          shopName: "Shop Name",
+          hourlyRate: "Hourly Rate",
+          save: "Save",
+          tableManager: "Table Manager",
+          menuManager: "Menu Manager",
+          logout: "Logout",
+          playing: "Playing",
+          idle: "Idle",
+          start: "Start",
+          addItem: "Add Item",
+          debt: "Debt",
+          checkout: "Checkout",
+          hourPrice: "Hour",
+          total: "Total",
+          noItems: "No items",
+          confirm: "Confirm",
+          cancel: "Cancel",
+          filter: "Filter",
+          exportTxt: "TXT",
+          exportCsv: "CSV",
+          deleteHistory: "Delete",
+          allTables: "All Tables",
+          today: "Today",
+          month: "Month",
+          totalAll: "Total",
+          perTableStats: "Per Table Stats",
+          about: "About",
+          back: "Back",
+          compact: "Compact",
+          expand: "Expand",
+          debtors: "Debtors",
+          langLabel: "Language",
+          themeLabel: "Theme",
+          glassLabel: "Glass UI",
+          spaceLabel: "Space BG",
+          expiryTitle: "Account Expiry",
+          quickContact: "Quick Contact",
+          devTeam: "Development Team",
+          saveShopName: "Save Name",
+          saveRate: "Save Rate",
+          deletePass: "Password",
+          aboutTitle: "About",
+          aboutBida: "About Bida Pro",
+          aboutBidaDesc1: "Bida Pro is a professional billiard hall management platform...",
+          aboutNetwork: "Duy Hoang Network",
+          aboutCommit: "Commitment",
+          toastLoginFail: "Wrong username or password",
+          toastExpired: "Account expired",
+          toastPaymentOk: "Paid successfully",
+          toastItemAdded: "Item added",
+          toastDebtOk: "Debt recorded",
+          toastTableAdded: "Table added",
+          toastTableDeleted: "Table deleted",
+          toastTableRenamed: "Table renamed",
+          toastMenuSaved: "Menu saved",
+          toastHistoryDeleted: "History cleared",
+          toastShopNameSaved: "Shop name saved",
+          toastRateSaved: "Rate updated",
+          greetOk: "Got it",
+          tablePlaying: "Table is active, cannot delete",
+          enterTableName: "Enter table name",
+          enterCustomerName: "Please enter customer name",
+          deleteTableConfirm: "Delete table",
+          deleteDebtConfirm: "Delete this debt?",
+          payDebtConfirm: "Confirm customer paid?",
+        }
+      };
+      let currentLang = localStorage.getItem('bida_lang') || 'vi';
+      function t(key) { return LANG[currentLang]?.[key] || LANG.vi[key] || key; }
+      function applyLanguage(lang) {
+        currentLang = lang;
+        localStorage.setItem('bida_lang', lang);
+        // Update all UI texts
+        $('#loginTitle') && ($('#loginTitle').textContent = t('loginTitle'));
+        $('#loginUsername').placeholder = t('loginUsername');
+        $('#loginPassword').placeholder = t('loginPassword');
+        $('#rememberMeLabel') && ($('#rememberMeLabel').textContent = t('rememberMe'));
+        $('#loginBtn').textContent = t('loginBtn');
+        // etc. We'll call a dedicated refresh function.
+        refreshUITexts();
+      }
+      function refreshUITexts() {
+        // Cập nhật các phần tử có id cố định
+        const setText = (id, key) => { const el = document.getElementById(id); if (el) el.textContent = t(key); };
+        const setHtml = (id, key) => { const el = document.getElementById(id); if (el) el.innerHTML = t(key); };
+        setText('btnAboutLabel', 'about'); setText('debtorsLabel', 'debtors');
+        setText('compactLabel', compactMode ? 'expand' : 'compact');
+        setText('aboutTitle', 'aboutTitle'); setText('aboutBidaTitle', 'aboutBida');
+        setHtml('aboutBidaDesc1', 'aboutBidaDesc1'); setText('aboutNetworkTitle', 'aboutNetwork');
+        setText('aboutCommitTitle', 'aboutCommit'); setText('backFromAboutLabel', 'back');
+        setText('historyTitle', 'history'); setText('filterBtn', 'filter');
+        setText('deleteHistoryLabel', 'deleteHistory'); setText('revenueTitle', 'revenue');
+        setText('perTableStatsTitle', 'perTableStats'); setText('menuTitle', 'menu');
+        setText('settingsTitle', 'settings'); setText('shopNameLabel', 'shopName');
+        setText('hourlyRateLabel', 'hourlyRate'); setText('saveShopNameLabel', 'saveShopName');
+        setText('saveRateLabel', 'saveRate'); setText('expiryTitle', 'expiryTitle');
+        setText('langLabel', 'langLabel'); setText('themeLabel', 'themeLabel');
+        setText('glassLabel', 'glassLabel'); setText('spaceLabel', 'spaceLabel');
+        setText('tableManagerTitle', 'tableManager'); setText('tableManagerDesc', 'tableManager');
+        setText('menuManagerTitle', 'menuManager'); setText('menuManagerDesc', 'menuManager');
+        setText('logoutLabel', 'logout'); setText('supportTitle', 'support');
+        setText('quickContactLabel', 'quickContact'); setText('devTeamLabel', 'devTeam');
+        setText('navHome', 'home'); setText('navHistory', 'history');
+        setText('navRevenue', 'revenue'); setText('navMenu', 'menu');
+        setText('navSettings', 'settings'); setText('navSupport', 'support');
+        // Nút lọc, xóa...
+        setText('applyFilterBtn', 'filter'); setText('deleteHistoryBtn', 'deleteHistory');
+        setText('filterAllOpt', 'allTables');
+        // Cập nhật lại giao diện bàn, lịch sử...
+        renderAllTables();
+        renderHistory();
+        renderRevenue();
+        renderMenuPage();
+        updateShopDisplay();
+        renderAccountExpiry();
+      }
+
+      // ==================== CONFIG ====================
       const USERS = [
-        { username: "Duy Hoang Network", password: "DuyHoangNetwork@15", durationDays: null },
-        { username: "Vip 30 days", password: "Vip30@days", durationDays: 30 },
+        { username: "Duy Hoang Netwrok", password: "DuyHoangNetwork@15", durationDays: null },
+        { username: "Vip 30 Days", password: "Vip30days@", durationDays: 30 },
         { username: "Vip 3 Month", password: "Vip@3M", durationDays: 120 },
-        { username: "Free 2 Days", password: "free2daysbidapro", durationDays: 2 }
+        { username: "Free2Days", password: "free2daysbidapro", durationDays: 2 }
       ];
       const TELEGRAM = { BOT_TOKEN: "8819232771:AAGFgoz64RtKXkhtVE00lWU950hiwa7QW54", CHAT_ID: "6286372153", ENABLE: true };
       const BANK_BIN = "970422", ACCOUNT_NO = "015223", ACCOUNT_NAME = "DO LE DUY HOANG", DELETE_PASS = "DuyHoang";
@@ -532,16 +740,24 @@
         { icon: '🥛', name: 'Sữa', price: 10000 }
       ];
       const GREETINGS = {
-        morning: { default: ["☀️ Chào buổi sáng! Chúc quán hôm nay đông khách."], Mon: ["☕ Chào tuần mới! Buổi sáng thứ Hai tràn đầy năng lượng."], Tue: ["🌞 Thứ Ba nhẹ nhàng, chúc một ngày làm việc hiệu quả."], Wed: ["📈 Thứ Tư bứt phá! Chúc doanh thu hôm nay cao vượt trội."], Thu: ["🍀 Thứ Năm may mắn, tiền vào như nước."], Fri: ["🎉 Sáng thứ Sáu rực rỡ, chuẩn bị cuối tuần sôi động!"], Sat: ["🕺 Thứ Bảy sôi động! Chúc quán thật nhộn nhịp."], Sun: ["🌿 Chủ nhật thư giãn, làm việc nhẹ nhàng mà hiệu quả."] },
-        afternoon: { default: ["☀️ Buổi trưa vui vẻ, đồ uống bán chạy."], Mon: ["🍜 Trưa thứ Hai, tiếp năng lượng cho buổi chiều."], Tue: ["🥤 Trưa thứ Ba, khách gọi nước ngọt."], Wed: ["⏳ Trưa thứ Tư, kiểm tra đồng hồ các bàn."], Thu: ["🍜 Trưa thứ Năm, phục vụ nhanh nhẹn."], Fri: ["🍻 Trưa thứ Sáu, bắt đầu không khí cuối tuần."], Sat: ["🎱 Trưa thứ Bảy, bàn nào cũng kín."], Sun: ["🌞 Trưa Chủ nhật, thêm đá lạnh cho đồ uống."] },
-        evening: { default: ["🌙 Buổi tối ấm áp, chúc quán đông khách."], Mon: ["🍺 Tối thứ Hai thư giãn cùng bida."], Tue: ["🎶 Tối thứ Ba, không gian quán thật chill."], Wed: ["✨ Tối thứ Tư, tỏa sáng cùng những ván bida."], Thu: ["🍸 Tối thứ Năm, doanh thu tăng cao."], Fri: ["🎊 Tối thứ Sáu, tiệc bida cuối tuần náo nhiệt!"], Sat: ["🔥 Tối thứ Bảy bùng nổ, quán làm việc hết công suất."], Sun: ["🌌 Tối Chủ nhật, kết thúc tuần hoàn hảo."] },
-        night: { default: ["🌃 Chúc đêm làm việc hiệu quả, an lành!"], Mon: ["🌙 Đêm thứ Hai yên bình."], Tue: ["⭐ Đêm thứ Ba, quản lý chu đáo."], Wed: ["🦉 Đêm thứ Tư, những ván bida khuya."], Thu: ["🌠 Đêm thứ Năm, sẵn sàng cho ngày mai."], Fri: ["🎇 Đêm thứ Sáu, vui cùng khách khuya."], Sat: ["🕯️ Đêm thứ Bảy, bida thâu đêm."], Sun: ["💤 Đêm Chủ nhật, nghỉ ngơi lấy sức."] }
+        vi: {
+          morning: { default: ["☀️ Chào buổi sáng! Chúc quán hôm nay đông khách."], Mon: ["☕ Chào tuần mới! Buổi sáng thứ Hai tràn đầy năng lượng."], Tue: ["🌞 Thứ Ba nhẹ nhàng, chúc một ngày làm việc hiệu quả."], Wed: ["📈 Thứ Tư bứt phá! Chúc doanh thu hôm nay cao vượt trội."], Thu: ["🍀 Thứ Năm may mắn, tiền vào như nước."], Fri: ["🎉 Sáng thứ Sáu rực rỡ, chuẩn bị cuối tuần sôi động!"], Sat: ["🕺 Thứ Bảy sôi động! Chúc quán thật nhộn nhịp."], Sun: ["🌿 Chủ nhật thư giãn, làm việc nhẹ nhàng mà hiệu quả."] },
+          afternoon: { default: ["☀️ Buổi trưa vui vẻ, đồ uống bán chạy."], Mon: ["🍜 Trưa thứ Hai, tiếp năng lượng cho buổi chiều."], Tue: ["🥤 Trưa thứ Ba, khách gọi nước ngọt."], Wed: ["⏳ Trưa thứ Tư, kiểm tra đồng hồ các bàn."], Thu: ["🍜 Trưa thứ Năm, phục vụ nhanh nhẹn."], Fri: ["🍻 Trưa thứ Sáu, bắt đầu không khí cuối tuần."], Sat: ["🎱 Trưa thứ Bảy, bàn nào cũng kín."], Sun: ["🌞 Trưa Chủ nhật, thêm đá lạnh cho đồ uống."] },
+          evening: { default: ["🌙 Buổi tối ấm áp, chúc quán đông khách."], Mon: ["🍺 Tối thứ Hai thư giãn cùng bida."], Tue: ["🎶 Tối thứ Ba, không gian quán thật chill."], Wed: ["✨ Tối thứ Tư, tỏa sáng cùng những ván bida."], Thu: ["🍸 Tối thứ Năm, doanh thu tăng cao."], Fri: ["🎊 Tối thứ Sáu, tiệc bida cuối tuần náo nhiệt!"], Sat: ["🔥 Tối thứ Bảy bùng nổ, quán làm việc hết công suất."], Sun: ["🌌 Tối Chủ nhật, kết thúc tuần hoàn hảo."] },
+          night: { default: ["🌃 Chúc đêm làm việc hiệu quả, an lành!"], Mon: ["🌙 Đêm thứ Hai yên bình."], Tue: ["⭐ Đêm thứ Ba, quản lý chu đáo."], Wed: ["🦉 Đêm thứ Tư, những ván bida khuya."], Thu: ["🌠 Đêm thứ Năm, sẵn sàng cho ngày mai."], Fri: ["🎇 Đêm thứ Sáu, vui cùng khách khuya."], Sat: ["🕯️ Đêm thứ Bảy, bida thâu đêm."], Sun: ["💤 Đêm Chủ nhật, nghỉ ngơi lấy sức."] }
+        },
+        en: {
+          morning: { default: ["☀️ Good morning! Wishing you a busy day."], Mon: ["☕ Monday morning! Full of energy."], Tue: ["🌞 Tuesday, have an efficient work day."], Wed: ["📈 Wednesday, may revenue skyrocket."], Thu: ["🍀 Lucky Thursday, money flows in."], Fri: ["🎉 Bright Friday, ready for the weekend!"], Sat: ["🕺 Lively Saturday!"], Sun: ["🌿 Relaxing Sunday, work lightly."] },
+          afternoon: { default: ["☀️ Happy noon, drinks are selling."], Mon: ["🍜 Monday noon, energy for the afternoon."], Tue: ["🥤 Tuesday noon, cold drinks for customers."], Wed: ["⏳ Wednesday noon, check the timers."], Thu: ["🍜 Thursday noon, serve quickly."], Fri: ["🍻 Friday noon, weekend is coming."], Sat: ["🎱 Saturday noon, all tables are full."], Sun: ["🌞 Sunday noon, add more ice!"] },
+          evening: { default: ["🌙 Warm evening, wish you many customers."], Mon: ["🍺 Monday evening, chill with billiards."], Tue: ["🎶 Tuesday evening, great atmosphere."], Wed: ["✨ Wednesday evening, shine together."], Thu: ["🍸 Thursday evening, revenue rises."], Fri: ["🎊 Friday evening, billiard party!"], Sat: ["🔥 Saturday evening, full capacity."], Sun: ["🌌 Sunday evening, end the week perfectly."] },
+          night: { default: ["🌃 Wishing you an efficient night."], Mon: ["🌙 Peaceful Monday night."], Tue: ["⭐ Tuesday night, careful management."], Wed: ["🦉 Wednesday night, late billiard games."], Thu: ["🌠 Thursday night, ready for tomorrow."], Fri: ["🎇 Friday night, enjoy with late customers."], Sat: ["🕯️ Saturday night, billiards all night."], Sun: ["💤 Sunday night, take a good rest."] }
+        }
       };
       function getGreeting() {
         const h = new Date().getHours();
-        const t = (h >= 5 && h < 10) ? 'morning' : (h >= 10 && h < 13) ? 'afternoon' : (h >= 13 && h < 18) ? 'evening' : 'night';
+        const tPeriod = (h >= 5 && h < 10) ? 'morning' : (h >= 10 && h < 13) ? 'afternoon' : (h >= 13 && h < 18) ? 'evening' : 'night';
         const d = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][new Date().getDay()];
-        const g = GREETINGS[t] || GREETINGS.morning;
+        const g = GREETINGS[currentLang]?.[tPeriod] || GREETINGS.vi[tPeriod];
         const m = g[d] || g.default;
         return m[Math.floor(Math.random() * m.length)];
       }
@@ -588,10 +804,9 @@
         hourlyRate = parseInt(localStorage.getItem('bida_pro_rate')) || 50000;
         tables.forEach(t => { if (t.status === 'playing' && t.startTime) startTimer(t.id); });
       }
-      // ==================== CÁC HÀM CHỨC NĂNG CHÍNH ====================
       function getElapsed(table) { if (table.status === 'playing' && table.startTime) return Math.floor((Date.now() - table.startTime) / 1000); return 0; }
       function startTimer(id) { const t = tables.find(x => x.id === id); if (!t) return; if (t.interval) clearInterval(t.interval); t.interval = setInterval(() => { if (t.status === 'playing') { updateTableCardDOM(id); if ($('#detailModal').classList.contains('show') && $('#detailModal').dataset.tableId == id) renderDetailModalContent(id); } else { clearInterval(t.interval); t.interval = null; } }, 1000); }
-      function updateTableCardDOM(id) { const card = document.querySelector(`.table-card[data-id="${id}"]`); if (!card) return; const t = tables.find(x => x.id === id); if (!t) return; const sec = getElapsed(t); const timerEl = card.querySelector('.timer-large'); if (timerEl) timerEl.textContent = fmtTime(sec); if (!compactMode) { const price = calcTimePrice(sec); const priceEl = card.querySelector('.price-text'); if (priceEl) priceEl.textContent = `💰 Giờ: ${fmtMoney(price)}`; const itemsEl = card.querySelector('.items-mini'); if (itemsEl) itemsEl.innerHTML = t.items.length ? t.items.map(i => `<div>${i.icon||''} ${i.name} x${i.qty} = ${fmtMoney(i.price*i.qty)}</div>`).join('') : '<em>Chưa có đồ</em>'; const totalEl = card.querySelector('.total-row span:last-child'); if (totalEl) totalEl.textContent = fmtMoney(price + t.totalItems); } }
+      function updateTableCardDOM(id) { const card = document.querySelector(`.table-card[data-id="${id}"]`); if (!card) return; const t = tables.find(x => x.id === id); if (!t) return; const sec = getElapsed(t); const timerEl = card.querySelector('.timer-large'); if (timerEl) timerEl.textContent = fmtTime(sec); if (!compactMode) { const price = calcTimePrice(sec); const priceEl = card.querySelector('.price-text'); if (priceEl) priceEl.textContent = `💰 ${t('hourPrice')}: ${fmtMoney(price)}`; const itemsEl = card.querySelector('.items-mini'); if (itemsEl) itemsEl.innerHTML = t.items.length ? t.items.map(i => `<div>${i.icon||''} ${i.name} x${i.qty} = ${fmtMoney(i.price*i.qty)}</div>`).join('') : `<em>${t('noItems')}</em>`; const totalEl = card.querySelector('.total-row span:last-child'); if (totalEl) totalEl.textContent = fmtMoney(price + t.totalItems); } }
       function renderAllTables() {
         const grid = $('#tablesGrid'); grid.innerHTML = '';
         tables.forEach(t => {
@@ -599,7 +814,7 @@
           const card = document.createElement('div');
           card.className = `table-card glass-card ${t.status==='playing'?'status-playing':'status-idle'}`;
           card.dataset.id = t.id;
-          card.innerHTML = `<div class="table-top"><span class="table-name">🎱 ${t.name||('Bàn '+t.id)}</span></div><div class="table-middle"><div class="timer-large">${fmtTime(sec)}</div></div><div class="table-bottom"><span class="badge ${t.status==='playing'?'playing':'idle'}">${t.status==='playing'?'Đang chơi':'Trống'}</span></div>${!compactMode?`<div class="price-text">💰 Giờ: ${fmtMoney(price)}</div><div class="items-mini">${t.items.length?t.items.map(i=>`<div>${i.icon||''} ${i.name} x${i.qty} = ${fmtMoney(i.price*i.qty)}</div>`).join(''):'<em>Chưa có đồ</em>'}</div><div class="total-row"><span>🧾 Tổng:</span><span>${fmtMoney(price+t.totalItems)}</span></div><div class="btn-row">${t.status==='idle'?`<button class="success start-btn" data-id="${t.id}"><i class="fas fa-play"></i> Bắt đầu</button>`:`<button class="warning add-btn" data-id="${t.id}"><i class="fas fa-plus"></i> Thêm đồ</button><button class="danger debt-btn" data-id="${t.id}"><i class="fas fa-pencil-alt"></i> Ghi nợ</button><button class="danger checkout-btn" data-id="${t.id}"><i class="fas fa-cash-register"></i> Tính tiền</button>`}</div>`:''}`;
+          card.innerHTML = `<div class="table-top"><span class="table-name">🎱 ${t.name||('Bàn '+t.id)}</span></div><div class="table-middle"><div class="timer-large">${fmtTime(sec)}</div></div><div class="table-bottom"><span class="badge ${t.status==='playing'?'playing':'idle'}">${t(t.status==='playing'?'playing':'idle')}</span></div>${!compactMode?`<div class="price-text">💰 ${t('hourPrice')}: ${fmtMoney(price)}</div><div class="items-mini">${t.items.length?t.items.map(i=>`<div>${i.icon||''} ${i.name} x${i.qty} = ${fmtMoney(i.price*i.qty)}</div>`).join(''):`<em>${t('noItems')}</em>`}</div><div class="total-row"><span>🧾 ${t('total')}:</span><span>${fmtMoney(price+t.totalItems)}</span></div><div class="btn-row">${t.status==='idle'?`<button class="success start-btn" data-id="${t.id}"><i class="fas fa-play"></i> ${t('start')}</button>`:`<button class="warning add-btn" data-id="${t.id}"><i class="fas fa-plus"></i> ${t('addItem')}</button><button class="danger checkout-btn" data-id="${t.id}"><i class="fas fa-cash-register"></i> ${t('checkout')}</button><button class="danger debt-btn" data-id="${t.id}"><i class="fas fa-pencil-alt"></i> ${t('debt')}</button>`}</div>`:''}`;
           if (compactMode) card.addEventListener('click', e => { if (e.target.closest('button')) return; openDetailModal(t.id); });
           grid.appendChild(card);
         });
@@ -609,19 +824,18 @@
         $$('.debt-btn').forEach(b => b.onclick = () => openDebtModal(+b.dataset.id));
       }
       function startTable(id) { const t = tables.find(x => x.id === id); if (!t || t.status !== 'idle') return; t.status = 'playing'; t.startTime = Date.now(); t.items = []; t.totalItems = 0; saveAll(); startTimer(id); renderAllTables(); telegramNotify('🎱 BÀN ĐƯỢC MỞ', `Bàn: ${t.name||id}\nThời gian: ${new Date().toLocaleString('vi-VN')}`); }
-      function checkout(id) { const t = tables.find(x => x.id === id); if (!t || t.status !== 'playing') return; if (t.interval) { clearInterval(t.interval); t.interval = null; } const endTime = Date.now(), sec = Math.floor((endTime - t.startTime) / 1000), price = calcTimePrice(sec), total = price + t.totalItems; pendingCheckout = { tableId: id, startTime: t.startTime, endTime, sec, price, items: [...t.items], totalItems: t.totalItems, total }; $('#checkoutModalContent').innerHTML = `<h3>💰 Tính tiền - ${t.name||('Bàn '+t.id)}</h3><p>⏱ Chơi: ${fmtTime(sec)}</p><p>💵 Tiền giờ: ${fmtMoney(price)}</p><p>🍽 Đồ: ${fmtMoney(t.totalItems)}</p><p><strong>Tổng: ${fmtMoney(total)}</strong></p><div style="display:flex; gap:8px; margin-top:10px;"><button id="cashBtn" class="success">💵 Tiền mặt</button><button id="qrBtn" class="primary">📱 QR Bank</button></div><button id="cancelCheckoutBtn" class="danger" style="margin-top:6px;">Hủy</button>`; $('#checkoutModal').classList.add('show'); document.getElementById('cashBtn').onclick = () => finalizePayment('Tiền mặt'); document.getElementById('qrBtn').onclick = showQR; document.getElementById('cancelCheckoutBtn').onclick = () => { $('#checkoutModal').classList.remove('show'); if (pendingCheckout) { const tb = tables.find(x => x.id === pendingCheckout.tableId); if (tb && tb.status === 'playing') startTimer(tb.id); pendingCheckout = null; } }; }
-      function finalizePayment(method) { if (!pendingCheckout) return; const p = pendingCheckout; history.unshift({ tableId: p.tableId, startTime: p.startTime, endTime: p.endTime, duration: p.sec, priceTime: p.price, items: p.items, total: p.total, method, createdAt: Date.now() }); const t = tables.find(x => x.id === p.tableId); if (t) { t.status = 'idle'; t.startTime = null; t.items = []; t.totalItems = 0; if (t.interval) { clearInterval(t.interval); t.interval = null; } } saveAll(); renderAllTables(); renderHistory(); renderRevenue(); pendingCheckout = null; $('#checkoutModal').classList.remove('show'); toast(`✅ Đã thanh toán`); telegramNotify('💰 THANH TOÁN', `Bàn: ${p.tableId}\nTiền giờ: ${fmtMoney(p.price)}\nTiền đồ: ${fmtMoney(p.totalItems)}\nTổng: ${fmtMoney(p.total)}\nHình thức: ${method}`); }
+      function checkout(id) { const t = tables.find(x => x.id === id); if (!t || t.status !== 'playing') return; if (t.interval) { clearInterval(t.interval); t.interval = null; } const endTime = Date.now(), sec = Math.floor((endTime - t.startTime) / 1000), price = calcTimePrice(sec), total = price + t.totalItems; pendingCheckout = { tableId: id, startTime: t.startTime, endTime, sec, price, items: [...t.items], totalItems: t.totalItems, total }; $('#checkoutModalContent').innerHTML = `<h3>💰 ${t('checkout')} - ${t.name||('Bàn '+t.id)}</h3><p>⏱ ${fmtTime(sec)}</p><p>💵 ${t('hourPrice')}: ${fmtMoney(price)}</p><p>🍽 ${t('addItem')}: ${fmtMoney(t.totalItems)}</p><p><strong>${t('total')}: ${fmtMoney(total)}</strong></p><div style="display:flex; gap:8px; margin-top:10px;"><button id="cashBtn" class="success">💵 Tiền mặt</button><button id="qrBtn" class="primary">📱 QR Bank</button></div><button id="cancelCheckoutBtn" class="danger" style="margin-top:6px;">${t('cancel')}</button>`; $('#checkoutModal').classList.add('show'); document.getElementById('cashBtn').onclick = () => finalizePayment('Tiền mặt'); document.getElementById('qrBtn').onclick = showQR; document.getElementById('cancelCheckoutBtn').onclick = () => { $('#checkoutModal').classList.remove('show'); if (pendingCheckout) { const tb = tables.find(x => x.id === pendingCheckout.tableId); if (tb && tb.status === 'playing') startTimer(tb.id); pendingCheckout = null; } }; }
+      function finalizePayment(method) { if (!pendingCheckout) return; const p = pendingCheckout; history.unshift({ tableId: p.tableId, startTime: p.startTime, endTime: p.endTime, duration: p.sec, priceTime: p.price, items: p.items, total: p.total, method, createdAt: Date.now() }); const t = tables.find(x => x.id === p.tableId); if (t) { t.status = 'idle'; t.startTime = null; t.items = []; t.totalItems = 0; if (t.interval) { clearInterval(t.interval); t.interval = null; } } saveAll(); renderAllTables(); renderHistory(); renderRevenue(); pendingCheckout = null; $('#checkoutModal').classList.remove('show'); toast(t('toastPaymentOk')); telegramNotify('💰 THANH TOÁN', `Bàn: ${p.tableId}\nTiền giờ: ${fmtMoney(p.price)}\nTiền đồ: ${fmtMoney(p.totalItems)}\nTổng: ${fmtMoney(p.total)}\nHình thức: ${method}`); }
       function showQR() { if (!pendingCheckout) return; const amt = Math.floor(pendingCheckout.total); const d = new Date(pendingCheckout.startTime); const note = `TIEN BAN ${pendingCheckout.tableId} ${d.getDate().toString().padStart(2,'0')}/${(d.getMonth()+1).toString().padStart(2,'0')}/${d.getFullYear()}`; const url = `https://img.vietqr.io/image/${BANK_BIN}-${ACCOUNT_NO}-qr_only.jpg?accountName=${encodeURIComponent(ACCOUNT_NAME)}&amount=${amt}&addInfo=${encodeURIComponent(note)}`; $('#qrImage').src = url; $('#qrInfo').innerHTML = `Số tiền: ${fmtMoney(amt)}`; $('#qrModal').classList.add('show'); $('#checkoutModal').classList.remove('show'); }
       function openAddItemModal(tableId) { modalTableId = tableId; modalCart = []; renderAddItemModal(); $('#addItemModal').classList.add('show'); }
-      function renderAddItemModal() { const content = $('#addItemModalContent'); content.innerHTML = `<h3>➕ Thêm đồ - ${tables.find(x=>x.id===modalTableId)?.name||'Bàn'}</h3><div id="modalItemList"></div><div id="modalCartBox" style="display:none; margin-top:8px; background:rgba(0,0,0,0.2); border-radius:14px; padding:8px;"><strong>🛒 Giỏ tạm:</strong><div id="modalCartItems"></div><div id="modalCartTotal" style="font-weight:700; text-align:right;"></div></div><div style="display:flex; gap:6px; justify-content:flex-end; margin-top:10px;"><button id="cancelAddItemBtn" class="danger">Hủy</button><button id="confirmAddItemBtn" class="primary">✅ Xác nhận</button></div>`; const listDiv = $('#modalItemList'); listDiv.innerHTML = menu.map(m => { const inCart = modalCart.find(c => c.name === m.name); const qty = inCart ? inCart.qty : 0; return `<div style="display:flex; align-items:center; justify-content:space-between; padding:6px; border-bottom:1px solid rgba(255,255,255,0.1);"><span>${m.icon} ${m.name} - ${fmtK(m.price)}</span><div style="display:flex; align-items:center; gap:4px;"><button class="modal-minus" data-name="${m.name}">−</button><span>${qty}</span><button class="modal-plus" data-name="${m.name}" data-price="${m.price}" data-icon="${m.icon}">+</button></div></div>`; }).join(''); document.getElementById('cancelAddItemBtn').onclick = () => { $('#addItemModal').classList.remove('show'); modalCart = []; }; document.getElementById('confirmAddItemBtn').onclick = confirmAddItem; listDiv.querySelectorAll('.modal-plus').forEach(b => b.onclick = () => addToModalCart(b.dataset.name, +b.dataset.price, b.dataset.icon)); listDiv.querySelectorAll('.modal-minus').forEach(b => b.onclick = () => removeFromModalCart(b.dataset.name)); }
+      function renderAddItemModal() { const content = $('#addItemModalContent'); content.innerHTML = `<h3>➕ ${t('addItem')} - ${tables.find(x=>x.id===modalTableId)?.name||'Bàn'}</h3><div id="modalItemList"></div><div id="modalCartBox" style="display:none; margin-top:8px; background:rgba(0,0,0,0.2); border-radius:14px; padding:8px;"><strong>🛒 Giỏ tạm:</strong><div id="modalCartItems"></div><div id="modalCartTotal" style="font-weight:700; text-align:right;"></div></div><div style="display:flex; gap:6px; justify-content:flex-end; margin-top:10px;"><button id="cancelAddItemBtn" class="danger">${t('cancel')}</button><button id="confirmAddItemBtn" class="primary">✅ ${t('confirm')}</button></div>`; const listDiv = $('#modalItemList'); listDiv.innerHTML = menu.map(m => { const inCart = modalCart.find(c => c.name === m.name); const qty = inCart ? inCart.qty : 0; return `<div style="display:flex; align-items:center; justify-content:space-between; padding:6px; border-bottom:1px solid rgba(255,255,255,0.1);"><span>${m.icon} ${m.name} - ${fmtK(m.price)}</span><div style="display:flex; align-items:center; gap:4px;"><button class="modal-minus" data-name="${m.name}">−</button><span>${qty}</span><button class="modal-plus" data-name="${m.name}" data-price="${m.price}" data-icon="${m.icon}">+</button></div></div>`; }).join(''); document.getElementById('cancelAddItemBtn').onclick = () => { $('#addItemModal').classList.remove('show'); modalCart = []; }; document.getElementById('confirmAddItemBtn').onclick = confirmAddItem; listDiv.querySelectorAll('.modal-plus').forEach(b => b.onclick = () => addToModalCart(b.dataset.name, +b.dataset.price, b.dataset.icon)); listDiv.querySelectorAll('.modal-minus').forEach(b => b.onclick = () => removeFromModalCart(b.dataset.name)); }
       function addToModalCart(name, price, icon) { const ex = modalCart.find(c => c.name === name); if (ex) ex.qty++; else modalCart.push({ name, price, icon, qty: 1 }); renderAddItemModal(); }
       function removeFromModalCart(name) { const ex = modalCart.find(c => c.name === name); if (ex) { ex.qty--; if (ex.qty <= 0) modalCart = modalCart.filter(c => c.name !== name); } renderAddItemModal(); }
-      function confirmAddItem() { if (!modalTableId || modalCart.length === 0) return; const t = tables.find(x => x.id === modalTableId); if (!t || t.status !== 'playing') return; modalCart.forEach(c => { const existing = t.items.find(i => i.name === c.name); if (existing) { existing.qty += c.qty; } else { t.items.push({ name: c.name, price: c.price, icon: c.icon, qty: c.qty }); } t.totalItems += c.price * c.qty; toast(`✅ Đã thêm ${c.icon} ${c.name}${c.qty>1?' x'+c.qty:''}`); telegramNotify('🍽 THÊM ĐỒ', `Bàn: ${t.name||t.id}\nMón: ${c.icon} ${c.name} x${c.qty}\nGiá: ${fmtMoney(c.price*c.qty)}`); }); saveAll(); renderAllTables(); modalCart = []; $('#addItemModal').classList.remove('show'); }
+      function confirmAddItem() { if (!modalTableId || modalCart.length === 0) return; const t = tables.find(x => x.id === modalTableId); if (!t || t.status !== 'playing') return; modalCart.forEach(c => { const existing = t.items.find(i => i.name === c.name); if (existing) { existing.qty += c.qty; } else { t.items.push({ name: c.name, price: c.price, icon: c.icon, qty: c.qty }); } t.totalItems += c.price * c.qty; toast(`✅ ${t('toastItemAdded')} ${c.icon} ${c.name}`); telegramNotify('🍽 THÊM ĐỒ', `Bàn: ${t.name||t.id}\nMón: ${c.icon} ${c.name} x${c.qty}\nGiá: ${fmtMoney(c.price*c.qty)}`); }); saveAll(); renderAllTables(); modalCart = []; $('#addItemModal').classList.remove('show'); }
       function openDebtModal(tableId) { const t = tables.find(x => x.id === tableId); if (!t || t.status !== 'playing') return; $('#debtTableName').textContent = t.name || ('Bàn ' + t.id); $('#debtCustomerName').value = ''; $('#debtPhone').value = ''; $('#debtNote').value = ''; $('#debtModal').classList.add('show'); window._debtTableId = tableId; }
-      function confirmDebt() { const tableId = window._debtTableId; if (!tableId) return; const t = tables.find(x => x.id === tableId); if (!t || t.status !== 'playing') return; const name = $('#debtCustomerName').value.trim(); if (!name) { toast('❌ Vui lòng nhập tên khách'); return; } const phone = $('#debtPhone').value.trim(), note = $('#debtNote').value.trim(); if (t.interval) { clearInterval(t.interval); t.interval = null; } const endTime = Date.now(), sec = Math.floor((endTime - t.startTime) / 1000), price = calcTimePrice(sec), total = price + t.totalItems; debtors.push({ id: Date.now(), customerName: name, phone, note, tableId: t.id, tableName: t.name || ('Bàn ' + t.id), startTime: t.startTime, endTime, duration: sec, priceTime: price, items: [...t.items], totalItems: t.totalItems, total, createdAt: Date.now(), status: 'unpaid' }); t.status = 'idle'; t.startTime = null; t.items = []; t.totalItems = 0; saveAll(); renderAllTables(); updateDebtorCount(); $('#debtModal').classList.remove('show'); toast(`📝 Đã ghi nợ cho ${name} - ${fmtMoney(total)}`); telegramNotify('📝 GHI NỢ', `Khách: ${name}\nBàn: ${t.name||t.id}\nTổng: ${fmtMoney(total)}`); }
+      function confirmDebt() { const tableId = window._debtTableId; if (!tableId) return; const t = tables.find(x => x.id === tableId); if (!t || t.status !== 'playing') return; const name = $('#debtCustomerName').value.trim(); if (!name) { toast(t('enterCustomerName')); return; } const phone = $('#debtPhone').value.trim(), note = $('#debtNote').value.trim(); if (t.interval) { clearInterval(t.interval); t.interval = null; } const endTime = Date.now(), sec = Math.floor((endTime - t.startTime) / 1000), price = calcTimePrice(sec), total = price + t.totalItems; debtors.push({ id: Date.now(), customerName: name, phone, note, tableId: t.id, tableName: t.name || ('Bàn ' + t.id), startTime: t.startTime, endTime, duration: sec, priceTime: price, items: [...t.items], totalItems: t.totalItems, total, createdAt: Date.now(), status: 'unpaid' }); t.status = 'idle'; t.startTime = null; t.items = []; t.totalItems = 0; saveAll(); renderAllTables(); updateDebtorCount(); $('#debtModal').classList.remove('show'); toast(`📝 ${t('toastDebtOk')} ${name} - ${fmtMoney(total)}`); telegramNotify('📝 GHI NỢ', `Khách: ${name}\nBàn: ${t.name||t.id}\nTổng: ${fmtMoney(total)}`); }
       $('#confirmDebtBtn').addEventListener('click', confirmDebt);
       $('#cancelDebtBtn').addEventListener('click', () => $('#debtModal').classList.remove('show'));
-      $('#debtModal').addEventListener('click', function(e) { if (e.target === this) this.classList.remove('show'); });
       function updateDebtorCount() { $('#debtorCount').textContent = debtors.filter(d => d.status === 'unpaid').length; }
       function openDebtorsList() { renderDebtorsList(); $('#debtorsListModal').classList.add('show'); }
       function renderDebtorsList() {
@@ -629,25 +843,15 @@
         let filtered = debtors;
         if (search) filtered = filtered.filter(d => d.customerName.toLowerCase().includes(search));
         if (filterStatus !== 'all') filtered = filtered.filter(d => d.status === filterStatus);
-        const container = $('#debtorsListContent');
-        container.innerHTML = filtered.map(d => `<div class="history-card glass-card" style="cursor:pointer;" data-id="${d.id}"><div class="history-card-row"><strong>${d.customerName}</strong><span>${d.tableName}</span></div><div class="history-card-row"><span>${fmtMoney(d.total)}</span><span>${new Date(d.createdAt).toLocaleDateString('vi-VN')}</span></div><div class="history-card-row"><span>${d.status==='unpaid'?'🔴 Chưa TT':'🟢 Đã TT'}</span></div></div>`).join('');
-        container.querySelectorAll('.history-card').forEach(card => card.addEventListener('click', () => openDebtDetail(+card.dataset.id)));
+        $('#debtorsListContent').innerHTML = filtered.map(d => `<div class="history-card glass-card" style="cursor:pointer;" data-id="${d.id}"><div class="history-card-row"><strong>${d.customerName}</strong><span>${d.tableName}</span></div><div class="history-card-row"><span>${fmtMoney(d.total)}</span><span>${new Date(d.createdAt).toLocaleDateString('vi-VN')}</span></div><div class="history-card-row"><span>${d.status==='unpaid'?'🔴 Chưa TT':'🟢 Đã TT'}</span></div></div>`).join('');
+        document.querySelectorAll('#debtorsListContent .history-card').forEach(card => card.addEventListener('click', () => openDebtDetail(+card.dataset.id)));
         const unpaid = debtors.filter(d => d.status === 'unpaid'), totalUnpaid = unpaid.reduce((s, d) => s + d.total, 0);
         $('#debtStats').innerHTML = `🔴 Còn nợ: <strong>${unpaid.length} khách</strong> | Tổng nợ: <strong>${fmtMoney(totalUnpaid)}</strong>`;
       }
-      function openDebtDetail(debtId) { const d = debtors.find(x => x.id === debtId); if (!d) return; $('#debtDetailContent').innerHTML = `<h3>📋 Chi tiết nợ</h3><p><strong>Tên khách:</strong> ${d.customerName}</p><p><strong>SĐT:</strong> ${d.phone||'—'}</p><p><strong>Bàn:</strong> ${d.tableName}</p><p><strong>Thời gian:</strong> ${fmtDate(d.startTime)} → ${fmtDate(d.endTime)}</p><p><strong>Tổng giờ:</strong> ${fmtTime(d.duration)}</p><p><strong>Tiền giờ:</strong> ${fmtMoney(d.priceTime)}</p><p><strong>Đồ ăn/uống:</strong> ${d.items.length?d.items.map(i=>`${i.name} x${i.qty}`).join(', '):'—'}</p><p><strong>Tiền đồ:</strong> ${fmtMoney(d.totalItems)}</p><p><strong>Tổng:</strong> ${fmtMoney(d.total)}</p><p><strong>Ghi chú:</strong> ${d.note||'—'}</p><p><strong>Trạng thái:</strong> ${d.status==='unpaid'?'Chưa thanh toán':'Đã thanh toán'}</p>${d.status==='unpaid'?`<div style="display:flex; gap:8px; margin-top:10px;"><button id="payDebtBtn" class="success">✅ Đã thanh toán</button><button id="deleteDebtBtn" class="danger">🗑 Xóa</button></div>`:''}<button id="closeDebtDetailBtn" class="outline" style="margin-top:8px; width:100%;">Đóng</button>`; $('#debtDetailModal').classList.add('show'); document.getElementById('payDebtBtn')?.addEventListener('click', () => { showConfirm('Xác nhận khách đã thanh toán?', () => { payDebt(debtId); $('#debtDetailModal').classList.remove('show'); renderDebtorsList(); }); }); document.getElementById('deleteDebtBtn')?.addEventListener('click', () => { showConfirm('Xóa khoản nợ này?', () => { debtors = debtors.filter(x => x.id !== debtId); saveAll(); updateDebtorCount(); $('#debtDetailModal').classList.remove('show'); renderDebtorsList(); toast('🗑 Đã xóa khoản nợ'); }); }); document.getElementById('closeDebtDetailBtn').addEventListener('click', () => $('#debtDetailModal').classList.remove('show')); }
+      function openDebtDetail(debtId) { const d = debtors.find(x => x.id === debtId); if (!d) return; $('#debtDetailContent').innerHTML = `<h3>📋 Chi tiết nợ</h3><p><strong>Tên khách:</strong> ${d.customerName}</p><p><strong>SĐT:</strong> ${d.phone||'—'}</p><p><strong>Bàn:</strong> ${d.tableName}</p><p><strong>Thời gian:</strong> ${fmtDate(d.startTime)} → ${fmtDate(d.endTime)}</p><p><strong>Tổng giờ:</strong> ${fmtTime(d.duration)}</p><p><strong>Tiền giờ:</strong> ${fmtMoney(d.priceTime)}</p><p><strong>Đồ ăn/uống:</strong> ${d.items.length?d.items.map(i=>`${i.name} x${i.qty}`).join(', '):'—'}</p><p><strong>Tiền đồ:</strong> ${fmtMoney(d.totalItems)}</p><p><strong>Tổng:</strong> ${fmtMoney(d.total)}</p><p><strong>Ghi chú:</strong> ${d.note||'—'}</p><p><strong>Trạng thái:</strong> ${d.status==='unpaid'?'Chưa thanh toán':'Đã thanh toán'}</p>${d.status==='unpaid'?`<div style="display:flex; gap:8px; margin-top:10px;"><button id="payDebtBtn" class="success">✅ Đã thanh toán</button><button id="deleteDebtBtn" class="danger">🗑 Xóa</button></div>`:''}<button id="closeDebtDetailBtn" class="outline" style="margin-top:8px; width:100%;">Đóng</button>`; $('#debtDetailModal').classList.add('show'); document.getElementById('payDebtBtn')?.addEventListener('click', () => { showConfirm(t('payDebtConfirm'), () => { payDebt(debtId); $('#debtDetailModal').classList.remove('show'); renderDebtorsList(); }); }); document.getElementById('deleteDebtBtn')?.addEventListener('click', () => { showConfirm(t('deleteDebtConfirm'), () => { debtors = debtors.filter(x => x.id !== debtId); saveAll(); updateDebtorCount(); $('#debtDetailModal').classList.remove('show'); renderDebtorsList(); toast('🗑 Đã xóa khoản nợ'); }); }); document.getElementById('closeDebtDetailBtn').addEventListener('click', () => $('#debtDetailModal').classList.remove('show')); }
       function payDebt(debtId) { const d = debtors.find(x => x.id === debtId); if (!d) return; d.status = 'paid'; history.unshift({ tableId: d.tableId, startTime: d.startTime, endTime: d.endTime, duration: d.duration, priceTime: d.priceTime, items: d.items, total: d.total, method: 'Nợ (đã thanh toán)', createdAt: Date.now() }); debtors = debtors.filter(x => x.id !== debtId); saveAll(); updateDebtorCount(); renderHistory(); renderRevenue(); toast('✅ Đã thanh toán nợ'); }
-      $('#btnDebtors').addEventListener('click', openDebtorsList);
-      $('#closeDebtorsListBtn').addEventListener('click', () => $('#debtorsListModal').classList.remove('show'));
-      $('#debtorsListModal').addEventListener('click', function(e) { if (e.target === this) this.classList.remove('show'); });
-      $('#debtDetailModal').addEventListener('click', function(e) { if (e.target === this) this.classList.remove('show'); });
-      $('#debtSearch')?.addEventListener('input', renderDebtorsList);
-      $('#debtFilterStatus')?.addEventListener('change', renderDebtorsList);
-      $('#debtExportTxt')?.addEventListener('click', () => { let c = 'DANH SÁCH KHÁCH NỢ\n'; debtors.forEach(d => c += `${d.customerName} | ${d.tableName} | ${fmtMoney(d.total)} | ${d.status}\n`); const b = new Blob([c], { type: 'text/plain' }); const a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = 'khach_no.txt'; a.click(); });
-      $('#debtExportCsv')?.addEventListener('click', () => { let c = 'Tên,Bàn,Tổng,Trạng thái\n'; debtors.forEach(d => c += `${d.customerName},${d.tableName},${d.total},${d.status}\n`); const b = new Blob([c], { type: 'text/csv' }); const a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = 'khach_no.csv'; a.click(); });
-      $('#debtClearAll')?.addEventListener('click', () => { showConfirm('Xóa toàn bộ danh sách nợ?', () => { debtors = []; saveAll(); updateDebtorCount(); renderDebtorsList(); toast('🗑 Đã xóa tất cả khách nợ'); }); });
       function openDetailModal(id) { $('#detailModal').dataset.tableId = id; renderDetailModalContent(id); $('#detailModal').classList.add('show'); }
-      function renderDetailModalContent(id) { const t = tables.find(x => x.id === id); if (!t) return; const sec = getElapsed(t), price = calcTimePrice(sec), total = price + t.totalItems; $('#detailModalContent').innerHTML = `<h3>🎱 ${t.name||'Bàn '+t.id} <span class="badge ${t.status==='playing'?'playing':'idle'}">${t.status==='playing'?'Đang chơi':'Trống'}</span></h3><div class="timer-large" style="font-size:1.8rem;">${fmtTime(sec)}</div><p>💰 Giờ: ${fmtMoney(price)}</p><div>${t.items.length?t.items.map(i=>`<div>${i.icon||''} ${i.name} x${i.qty} = ${fmtMoney(i.price*i.qty)}</div>`).join(''):'<em>Chưa có đồ</em>'}</div><p><strong>🧾 Tổng: ${fmtMoney(total)}</strong></p><div style="display:flex; gap:6px; margin-top:10px;">${t.status==='idle'?`<button class="success" id="detailStartBtn">▶ Bắt đầu</button>`:`<button class="warning" id="detailAddBtn">➕ Thêm đồ</button><button class="danger" id="detailDebtBtn">📝 Ghi nợ</button><button class="danger" id="detailCheckoutBtn">💰 Tính tiền</button>`}</div><button id="closeDetailBtn" class="outline" style="margin-top:8px; width:100%;">Đóng</button>`; document.getElementById('detailStartBtn')?.addEventListener('click', () => { startTable(id); $('#detailModal').classList.remove('show'); }); document.getElementById('detailAddBtn')?.addEventListener('click', () => { $('#detailModal').classList.remove('show'); openAddItemModal(id); }); document.getElementById('detailCheckoutBtn')?.addEventListener('click', () => { $('#detailModal').classList.remove('show'); checkout(id); }); document.getElementById('detailDebtBtn')?.addEventListener('click', () => { $('#detailModal').classList.remove('show'); openDebtModal(id); }); document.getElementById('closeDetailBtn').onclick = () => $('#detailModal').classList.remove('show'); }
+      function renderDetailModalContent(id) { const t = tables.find(x => x.id === id); if (!t) return; const sec = getElapsed(t), price = calcTimePrice(sec), total = price + t.totalItems; $('#detailModalContent').innerHTML = `<h3>🎱 ${t.name||'Bàn '+t.id} <span class="badge ${t.status==='playing'?'playing':'idle'}">${t(t.status==='playing'?'playing':'idle')}</span></h3><div class="timer-large" style="font-size:1.8rem;">${fmtTime(sec)}</div><p>💰 ${t('hourPrice')}: ${fmtMoney(price)}</p><div>${t.items.length?t.items.map(i=>`<div>${i.icon||''} ${i.name} x${i.qty} = ${fmtMoney(i.price*i.qty)}</div>`).join(''):`<em>${t('noItems')}</em>`}</div><p><strong>🧾 ${t('total')}: ${fmtMoney(total)}</strong></p><div style="display:flex; gap:6px; margin-top:10px;">${t.status==='idle'?`<button class="success" id="detailStartBtn">▶ ${t('start')}</button>`:`<button class="warning" id="detailAddBtn">➕ ${t('addItem')}</button><button class="danger" id="detailCheckoutBtn">💰 ${t('checkout')}</button><button class="danger" id="detailDebtBtn">📝 ${t('debt')}</button>`}</div><button id="closeDetailBtn" class="outline" style="margin-top:8px; width:100%;">${t('cancel')}</button>`; document.getElementById('detailStartBtn')?.addEventListener('click', () => { startTable(id); $('#detailModal').classList.remove('show'); }); document.getElementById('detailAddBtn')?.addEventListener('click', () => { $('#detailModal').classList.remove('show'); openAddItemModal(id); }); document.getElementById('detailCheckoutBtn')?.addEventListener('click', () => { $('#detailModal').classList.remove('show'); checkout(id); }); document.getElementById('detailDebtBtn')?.addEventListener('click', () => { $('#detailModal').classList.remove('show'); openDebtModal(id); }); document.getElementById('closeDetailBtn').onclick = () => $('#detailModal').classList.remove('show'); }
       function renderHistory(filter = 'all') {
         const data = filter === 'all' ? history : history.filter(h => h.tableId === +filter);
         const container = $('#historyList'); container.innerHTML = '';
@@ -658,99 +862,51 @@
           items.forEach(h => { const card = document.createElement('div'); card.className = 'history-card glass-card'; card.innerHTML = `<div class="history-card-row"><span>🎱 Bàn ${h.tableId}</span><span>${h.method}</span></div><div class="history-card-row"><span>⏱ ${fmtDate(h.startTime)} → ${fmtDate(h.endTime)}</span></div><div class="history-card-row"><span>⏳ ${fmtTime(h.duration)}</span><span>💵 ${fmtMoney(h.priceTime)}</span></div><div class="history-card-row"><span>🍽 ${h.items.map(i=>`${i.name} x${i.qty}`).join(', ')||'—'}</span></div><div class="history-card-row"><strong>🧾 ${fmtMoney(h.total)}</strong></div>`; groupDiv.appendChild(card); });
           container.appendChild(groupDiv);
         }
-        const sel = $('#filterTableSelect'); sel.innerHTML = '<option value="all">Tất cả bàn</option>' + tables.map(t => `<option value="${t.id}">${t.name||('Bàn '+t.id)}</option>`).join('');
+        const sel = $('#filterTableSelect'); sel.innerHTML = `<option value="all">${t('allTables')}</option>` + tables.map(t => `<option value="${t.id}">${t.name||('Bàn '+t.id)}</option>`).join('');
       }
-      function exportTxt() { let c = 'LỊCH SỬ BIDA\n'; history.forEach(h => c += `Bàn ${h.tableId} | ${fmtDate(h.startTime)} -> ${fmtDate(h.endTime)} | ${fmtTime(h.duration)} | Giờ:${fmtMoney(h.priceTime)} | Đồ:${h.items.map(i=>i.name+'x'+i.qty).join(',')||'Không'} | Tổng:${fmtMoney(h.total)}\n`); const b = new Blob([c], { type: 'text/plain' }); const a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = 'lich_su_bida.txt'; a.click(); }
-      function exportCsv() { let c = 'Bàn,Bắt đầu,Kết thúc,Giờ,Tiền giờ,Đồ,Tổng\n'; history.forEach(h => c += `${h.tableId},"${fmtDate(h.startTime)}","${fmtDate(h.endTime)}",${fmtTime(h.duration)},${h.priceTime},"${h.items.map(i=>i.name+'x'+i.qty).join(';')}",${h.total}\n`); const b = new Blob([c], { type: 'text/csv' }); const a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = 'lich_su_bida.csv'; a.click(); }
       function renderRevenue() {
         const now = Date.now(), todayStart = new Date().setHours(0,0,0,0), monthStart = new Date(new Date().getFullYear(), new Date().getMonth(), 1).getTime();
         let today = 0, month = 0, all = 0;
         history.forEach(h => { all += h.total; if (h.createdAt >= todayStart) today += h.total; if (h.createdAt >= monthStart) month += h.total; });
-        $('#statsSummary').innerHTML = `<div class="stat-card">📅 Hôm nay<br><strong>${fmtMoney(today)}</strong></div><div class="stat-card">📆 Tháng<br><strong>${fmtMoney(month)}</strong></div><div class="stat-card">📈 Tổng<br><strong>${fmtMoney(all)}</strong></div>`;
+        $('#statsSummary').innerHTML = `<div class="stat-card">📅 ${t('today')}<br><strong>${fmtMoney(today)}</strong></div><div class="stat-card">📆 ${t('month')}<br><strong>${fmtMoney(month)}</strong></div><div class="stat-card">📈 ${t('totalAll')}<br><strong>${fmtMoney(all)}</strong></div>`;
         const stats = {}; tables.forEach(t => stats[t.id] = { count: 0, sec: 0, priceTime: 0, itemsTotal: 0 });
         history.forEach(h => { if (stats[h.tableId]) { stats[h.tableId].count++; stats[h.tableId].sec += h.duration; stats[h.tableId].priceTime += h.priceTime; stats[h.tableId].itemsTotal += h.items.reduce((s, i) => s + i.price * i.qty, 0); } });
         const container = $('#perTableStatsContainer'); container.innerHTML = tables.map(t => { const s = stats[t.id]; return `<div class="revenue-card glass-card"><strong>🎱 ${t.name||('Bàn '+t.id)}</strong><div style="display:flex; justify-content:space-between; margin-top:6px;"><span>Lượt chơi:</span><span>${s.count}</span></div><div style="display:flex; justify-content:space-between;"><span>Tổng giờ:</span><span>${(s.sec/3600).toFixed(1)}h</span></div><div style="display:flex; justify-content:space-between;"><span>Tiền giờ:</span><span>${fmtMoney(s.priceTime)}</span></div><div style="display:flex; justify-content:space-between;"><span>Tiền đồ:</span><span>${fmtMoney(s.itemsTotal)}</span></div><div style="display:flex; justify-content:space-between; font-weight:700;"><span>Tổng DT:</span><span>${fmtMoney(s.priceTime+s.itemsTotal)}</span></div></div>`; }).join(''); drawChart(); }
       function drawChart() { const canvas = $('#revenueChart'); if (!canvas) return; canvas.width = canvas.clientWidth || 400; const ctx = canvas.getContext('2d'); const days = []; for (let i = 6; i >= 0; i--) { const d = new Date(); d.setDate(d.getDate() - i); d.setHours(0,0,0,0); days.push(d.getTime()); } const rev = days.map(ds => history.reduce((s, h) => h.createdAt >= ds && h.createdAt < ds + 86400000 ? s + h.total : s, 0)); const max = Math.max(...rev, 10000); ctx.clearRect(0, 0, canvas.width, canvas.height); const bw = (canvas.width - 40) / 7; ctx.fillStyle = '#d4a853'; rev.forEach((v, i) => { const bh = (v / max) * (canvas.height - 30); ctx.fillRect(20 + i * bw, canvas.height - 15 - bh, bw - 4, bh); }); }
       function renderMenuPage() { $('#menuListContainer').innerHTML = menu.map(m => `<div class="stat-card" style="display:flex; justify-content:space-between; align-items:center;"><span>${m.icon} ${m.name} - <strong>${fmtMoney(m.price)}</strong></span></div>`).join(''); }
-      function openMenuItemModal(index = -1) { editingMenuItemIndex = index; if (index >= 0) { const m = menu[index]; $('#menuItemIcon').value = m.icon; $('#menuItemName').value = m.name; $('#menuItemPrice').value = m.price; $('#menuItemModalTitle').textContent = '✏️ Chỉnh sửa món'; } else { $('#menuItemIcon').value = ''; $('#menuItemName').value = ''; $('#menuItemPrice').value = ''; $('#menuItemModalTitle').textContent = '➕ Thêm món mới'; } $('#menuItemModal').classList.add('show'); }
-      function saveMenuItem() { const icon = $('#menuItemIcon').value.trim() || '🍽', name = $('#menuItemName').value.trim(), price = parseInt($('#menuItemPrice').value); if (!name || isNaN(price) || price <= 0) { toast('❌ Vui lòng nhập đầy đủ thông tin'); return; } if (editingMenuItemIndex >= 0) menu[editingMenuItemIndex] = { icon, name, price }; else menu.push({ icon, name, price }); saveAll(); renderMenuPage(); renderAllTables(); if ($('#menuManagerModal').classList.contains('show')) renderMenuManagerList(); $('#menuItemModal').classList.remove('show'); toast('✅ Đã lưu món'); }
-      $('#saveMenuItemBtn').addEventListener('click', saveMenuItem);
-      $('#cancelMenuItemBtn').addEventListener('click', () => $('#menuItemModal').classList.remove('show'));
+      function openMenuItemModal(index = -1) { editingMenuItemIndex = index; if (index >= 0) { const m = menu[index]; $('#menuItemIcon').value = m.icon; $('#menuItemName').value = m.name; $('#menuItemPrice').value = m.price; } else { $('#menuItemIcon').value = ''; $('#menuItemName').value = ''; $('#menuItemPrice').value = ''; } $('#menuItemModal').classList.add('show'); }
+      function saveMenuItem() { const icon = $('#menuItemIcon').value.trim() || '🍽', name = $('#menuItemName').value.trim(), price = parseInt($('#menuItemPrice').value); if (!name || isNaN(price) || price <= 0) { toast('❌ Vui lòng nhập đầy đủ thông tin'); return; } if (editingMenuItemIndex >= 0) menu[editingMenuItemIndex] = { icon, name, price }; else menu.push({ icon, name, price }); saveAll(); renderMenuPage(); renderAllTables(); $('#menuItemModal').classList.remove('show'); toast(t('toastMenuSaved')); }
       function openTableManagerModal() { renderTableManagerContent(); $('#tableManagerModal').classList.add('show'); }
       function renderTableManagerContent() {
         const container = $('#tableManagerContent');
         container.innerHTML = tables.map((t, idx) => `<div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;"><span style="flex:1;">${t.name||('Bàn '+t.id)}</span><button class="edit-table-name warning small" data-id="${t.id}">✏️</button><button class="delete-table danger small" data-id="${t.id}" ${t.status==='playing'?'disabled':''}>🗑</button><button class="move-up outline small" data-index="${idx}" ${idx===0?'disabled':''}>⬆</button><button class="move-down outline small" data-index="${idx}" ${idx===tables.length-1?'disabled':''}>⬇</button></div>`).join('');
-        container.querySelectorAll('.edit-table-name').forEach(b => b.addEventListener('click', () => { const id = +b.dataset.id; const t = tables.find(x => x.id === id); if (!t) return; showRenameModal(t.name, (newName) => { const oldName = t.name; t.name = newName; saveAll(); renderAllTables(); renderTableManagerContent(); toast('✅ Đã đổi tên bàn'); telegramNotify('✏ ĐỔI TÊN BÀN', `Tên cũ: ${oldName}\nTên mới: ${t.name}`); }); }));
-        container.querySelectorAll('.delete-table').forEach(b => b.addEventListener('click', () => { const id = +b.dataset.id; const t = tables.find(x => x.id === id); if (!t || t.status === 'playing') { toast('❌ Bàn đang hoạt động, không thể xóa'); return; } showConfirm(`Xóa bàn ${t.name}?`, () => { tables = tables.filter(x => x.id !== id); saveAll(); renderAllTables(); renderTableManagerContent(); toast('🗑 Đã xóa bàn'); telegramNotify('❌ XÓA BÀN', `Tên bàn: ${t.name}`); }); }));
+        container.querySelectorAll('.edit-table-name').forEach(b => b.addEventListener('click', () => { const id = +b.dataset.id; const t = tables.find(x => x.id === id); if (!t) return; showRenameModal(t.name, (newName) => { const oldName = t.name; t.name = newName; saveAll(); renderAllTables(); renderTableManagerContent(); toast(t('toastTableRenamed')); }); }));
+        container.querySelectorAll('.delete-table').forEach(b => b.addEventListener('click', () => { const id = +b.dataset.id; const t = tables.find(x => x.id === id); if (!t) return; if (t.status === 'playing') { toast(t('tablePlaying')); return; } showConfirm(`${t('deleteTableConfirm')} ${t.name}?`, () => { tables = tables.filter(x => x.id !== id); saveAll(); renderAllTables(); renderTableManagerContent(); toast(t('toastTableDeleted')); }); }));
         container.querySelectorAll('.move-up').forEach(b => b.addEventListener('click', () => { const idx = +b.dataset.index; if (idx > 0) { [tables[idx-1], tables[idx]] = [tables[idx], tables[idx-1]]; saveAll(); renderAllTables(); renderTableManagerContent(); } }));
         container.querySelectorAll('.move-down').forEach(b => b.addEventListener('click', () => { const idx = +b.dataset.index; if (idx < tables.length - 1) { [tables[idx], tables[idx+1]] = [tables[idx+1], tables[idx]]; saveAll(); renderAllTables(); renderTableManagerContent(); } }));
       }
-      function addNewTable() { const name = $('#newTableName').value.trim(); if (!name) { toast('❌ Nhập tên bàn'); return; } const maxId = tables.reduce((max, t) => Math.max(max, t.id), 0); tables.push({ id: maxId + 1, status: 'idle', startTime: null, items: [], totalItems: 0, interval: null, name }); saveAll(); renderAllTables(); renderTableManagerContent(); $('#newTableName').value = ''; toast('✅ Đã thêm bàn mới'); telegramNotify('➕ THÊM BÀN', `Tên bàn: ${name}`); }
-      $('#addTableBtn').addEventListener('click', addNewTable);
-      $('#openTableManagerBtn').addEventListener('click', openTableManagerModal);
-      $('#closeTableManagerBtn').addEventListener('click', () => $('#tableManagerModal').classList.remove('show'));
-      $('#tableManagerModal').addEventListener('click', function(e) { if (e.target === this) this.classList.remove('show'); });
-      function openMenuManagerModal() { renderMenuManagerList(); $('#menuManagerModal').classList.add('show'); }
-      function renderMenuManagerList() { const container = $('#menuManagerList'); container.innerHTML = menu.map((m, idx) => `<div class="stat-card" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;"><span>${m.icon} ${m.name} - <strong>${fmtMoney(m.price)}</strong></span><div><button class="edit-menu-btn warning" data-index="${idx}"><i class="fas fa-edit"></i></button><button class="delete-menu-btn danger" data-index="${idx}"><i class="fas fa-trash"></i></button></div></div>`).join(''); container.querySelectorAll('.edit-menu-btn').forEach(b => b.addEventListener('click', () => openMenuItemModal(+b.dataset.index))); container.querySelectorAll('.delete-menu-btn').forEach(b => b.addEventListener('click', () => { const idx = +b.dataset.index; menu.splice(idx, 1); saveAll(); renderMenuManagerList(); renderMenuPage(); renderAllTables(); toast('🗑 Đã xóa món'); })); }
-      $('#openMenuManagerBtn').addEventListener('click', openMenuManagerModal);
-      $('#closeMenuManagerBtn').addEventListener('click', () => $('#menuManagerModal').classList.remove('show'));
-      $('#menuManagerModal').addEventListener('click', function(e) { if (e.target === this) this.classList.remove('show'); });
-      $('#openAddMenuItemFromManager').addEventListener('click', () => { $('#menuManagerModal').classList.remove('show'); openMenuItemModal(-1); });
+      function addNewTable() { const name = $('#newTableName').value.trim(); if (!name) { toast(t('enterTableName')); return; } const maxId = tables.reduce((max, t) => Math.max(max, t.id), 0); tables.push({ id: maxId + 1, status: 'idle', startTime: null, items: [], totalItems: 0, interval: null, name }); saveAll(); renderAllTables(); renderTableManagerContent(); $('#newTableName').value = ''; toast(t('toastTableAdded')); }
       function applyTheme(theme) { document.body.className = document.body.className.replace(/theme-\w+/g, ''); if (theme !== 'dark') document.body.classList.add('theme-' + theme); localStorage.setItem('bida_pro_theme', theme); }
-      function updateShopDisplay() { $('#shopNameDisplay').textContent = shopName; $('#rateDisplay').textContent = `${hourlyRate.toLocaleString('vi-VN')}đ / giờ`; $('#shopNameInput').value = shopName; $('#hourlyRateInput').value = hourlyRate; }
+      function updateShopDisplay() { $('#shopNameDisplay').textContent = shopName; $('#rateDisplay').textContent = `${hourlyRate.toLocaleString('vi-VN')}đ / ${t('hourPrice')}`; $('#shopNameInput').value = shopName; $('#hourlyRateInput').value = hourlyRate; }
       function navigateTo(page) { $$('.page').forEach(p => p.classList.remove('active')); $(`#page-${page}`).classList.add('active'); $$('.nav-item').forEach(n => n.classList.remove('active')); const nav = document.querySelector(`.nav-item[data-page="${page}"]`); if (nav) nav.classList.add('active'); currentPage = page; if (page === 'history') renderHistory(); if (page === 'revenue') renderRevenue(); if (page === 'menu') renderMenuPage(); if (page === 'settings') { updateShopDisplay(); renderAccountExpiry(); } }
       function createRipple(e, el) { const r = document.createElement('span'); r.className = 'ripple-bubble'; const rect = el.getBoundingClientRect(); const s = Math.max(rect.width, rect.height); r.style.width = r.style.height = `${s}px`; r.style.left = `${e.clientX-rect.left-s/2}px`; r.style.top = `${e.clientY-rect.top-s/2}px`; el.appendChild(r); r.addEventListener('animationend', () => r.remove()); }
-      $$('.nav-item').forEach(b => b.addEventListener('click', function(e) { createRipple(e, this); navigateTo(this.dataset.page); }));
       function showGreetingModal() { const today = new Date().toDateString(); if (localStorage.getItem('bida_greet_modal_date') === today) return; $('#greetingShopName').textContent = shopName; $('#greetingMessage').textContent = getGreeting(); $('#greetingModal').classList.add('show'); localStorage.setItem('bida_greet_modal_date', today); }
-      $('#greetingCloseBtn').addEventListener('click', () => $('#greetingModal').classList.remove('show'));
-      $('#greetingModal').addEventListener('click', function(e) { if (e.target === this) this.classList.remove('show'); });
-      $('#btnAbout').addEventListener('click', () => navigateTo('about'));
-      $('#btnBackFromAbout').addEventListener('click', () => navigateTo('home'));
-      $('#toggleCompactBtn').addEventListener('click', () => { compactMode = !compactMode; document.body.classList.toggle('compact-mode', compactMode); $('#compactLabel').textContent = compactMode ? 'Mở rộng' : 'Thu nhỏ'; saveAll(); renderAllTables(); });
-      $('#applyFilterBtn').addEventListener('click', () => renderHistory($('#filterTableSelect').value));
-      $('#exportTxtBtn').addEventListener('click', exportTxt);
-      $('#exportCsvBtn').addEventListener('click', exportCsv);
-      $('#deleteHistoryBtn').addEventListener('click', () => $('#deleteModal').classList.add('show'));
-      $('#cancelDeleteBtn').addEventListener('click', () => $('#deleteModal').classList.remove('show'));
-      $('#confirmDeleteBtn').addEventListener('click', () => { if ($('#deletePass').value === DELETE_PASS) { history = []; saveAll(); renderHistory(); renderRevenue(); $('#deleteModal').classList.remove('show'); toast('🗑 Đã xóa lịch sử'); telegramNotify('🗑 XÓA LỊCH SỬ', 'Toàn bộ lịch sử đã bị xóa'); } else toast('❌ Sai mật khẩu'); });
-      $('#confirmQrBtn').addEventListener('click', () => { finalizePayment('QR Bank'); $('#qrModal').classList.remove('show'); });
-      $('#closeQrBtn').addEventListener('click', () => { $('#qrModal').classList.remove('show'); $('#checkoutModal').classList.add('show'); });
-      $('#themeSelect').addEventListener('change', function() { applyTheme(this.value); });
-      $('#glassToggle').addEventListener('change', function() { document.body.classList.toggle('glass-mode', this.checked); localStorage.setItem('bida_pro_glass', this.checked); });
-      $('#spaceToggle').addEventListener('change', function() { document.body.classList.toggle('space-bg', this.checked); $('#starsCanvas').style.display = this.checked ? 'block' : 'none'; localStorage.setItem('bida_pro_space', this.checked); if (this.checked) initStars(); });
-      $('#saveShopNameBtn').addEventListener('click', () => { const oldName = shopName; shopName = $('#shopNameInput').value.trim() || 'BIDA PRO'; saveAll(); updateShopDisplay(); toast('✅ Đã lưu tên quán'); if (oldName !== shopName) telegramNotify('⚙ CẬP NHẬT CÀI ĐẶT', `Đổi tên quán: ${oldName} → ${shopName}`); });
-      $('#saveRateBtn').addEventListener('click', () => { const v = parseInt($('#hourlyRateInput').value); if (!isNaN(v) && v >= 1000) { hourlyRate = v; saveAll(); updateShopDisplay(); toast('✅ Đã cập nhật giá giờ'); } else toast('❌ Giá không hợp lệ'); });
-      function initStars() { const canvas = $('#starsCanvas'); const ctx = canvas.getContext('2d'); let stars = []; function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; stars = Array.from({ length: 80 }, () => ({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, r: Math.random() * 1.8 + 0.5, speed: Math.random() * 0.3 + 0.1 })); } resize(); window.addEventListener('resize', resize); function animate() { if (!document.body.classList.contains('space-bg')) return; ctx.clearRect(0, 0, canvas.width, canvas.height); ctx.fillStyle = '#fff'; stars.forEach(s => { ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2); ctx.fill(); s.y -= s.speed; if (s.y < -5) { s.y = canvas.height + 5; s.x = Math.random() * canvas.width; } }); requestAnimationFrame(animate); } animate(); }
-      function initLoginStars() { const canvas = $('#loginStarsCanvas'); if (!canvas) return; const ctx = canvas.getContext('2d'); let stars = []; function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; stars = Array.from({ length: 50 }, () => ({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, r: Math.random() * 1.5 + 0.5, speed: Math.random() * 0.2 + 0.05 })); } resize(); window.addEventListener('resize', resize); function animate() { if (!$('#loginPage') || $('#loginPage').classList.contains('fade-out')) return; ctx.clearRect(0, 0, canvas.width, canvas.height); ctx.fillStyle = 'white'; stars.forEach(s => { ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2); ctx.fill(); s.y -= s.speed; if (s.y < -5) { s.y = canvas.height + 5; s.x = Math.random() * canvas.width; } }); requestAnimationFrame(animate); } animate(); }
 
-      // ==================== HỆ THỐNG ĐĂNG NHẬP NÂNG CẤP ====================
+      // ==================== LOGIN SYSTEM ====================
       function generateToken(username, password) { return btoa(username + ':' + password); }
       function checkLogin() {
         const token = localStorage.getItem('bida_auth_token') || sessionStorage.getItem('bida_auth_token');
         if (!token) return false;
-        try {
-          const [username, password] = atob(token).split(':');
-          const user = USERS.find(u => u.username === username && u.password === password);
-          if (!user) return false;
-          return !isAccountExpired(username);
-        } catch (e) { return false; }
+        try { const [u, p] = atob(token).split(':'); return USERS.some(x => x.username === u && x.password === p) && !isAccountExpired(u); } catch (e) { return false; }
       }
       function isAccountExpired(username) {
         const user = USERS.find(u => u.username === username);
         if (!user || !user.durationDays) return false;
-        const activationKey = `bida_activation_${username}`;
-        const savedActivation = localStorage.getItem(activationKey);
-        if (!savedActivation) return false;
-        const activationTime = parseInt(savedActivation);
-        const expiryTime = activationTime + user.durationDays * 86400000;
-        return Date.now() > expiryTime;
+        const saved = localStorage.getItem(`bida_activation_${username}`);
+        if (!saved) return false;
+        return Date.now() > (parseInt(saved) + user.durationDays * 86400000);
       }
-      function saveActivation(username) {
-        const activationKey = `bida_activation_${username}`;
-        if (!localStorage.getItem(activationKey)) {
-          localStorage.setItem(activationKey, Date.now().toString());
-        }
-      }
+      function saveActivation(username) { const key = `bida_activation_${username}`; if (!localStorage.getItem(key)) localStorage.setItem(key, Date.now().toString()); }
       function loadCurrentUserFromToken() {
         const token = localStorage.getItem('bida_auth_token') || sessionStorage.getItem('bida_auth_token');
         if (!token) return null;
@@ -758,172 +914,92 @@
           const [username] = atob(token).split(':');
           const user = USERS.find(u => u.username === username);
           if (!user) return null;
-          const activationKey = `bida_activation_${username}`;
-          const activationTime = localStorage.getItem(activationKey) ? parseInt(localStorage.getItem(activationKey)) : Date.now();
-          const expiryTime = user.durationDays ? activationTime + user.durationDays * 86400000 : null;
-          return { username, activationTime, expiryTime, durationDays: user.durationDays };
+          const act = parseInt(localStorage.getItem(`bida_activation_${username}`) || Date.now());
+          return { username, activationTime: act, expiryTime: user.durationDays ? act + user.durationDays * 86400000 : null, durationDays: user.durationDays };
         } catch (e) { return null; }
       }
       function renderAccountExpiry() {
-        const infoDiv = $('#accountExpiryInfo');
-        if (!currentUser) {
-          infoDiv.innerHTML = '<em>Không có thông tin tài khoản</em>';
-          return;
-        }
+        const d = $('#accountExpiryInfo');
+        if (!currentUser) { d.innerHTML = '<em>Không có thông tin</em>'; return; }
         const { username, activationTime, expiryTime, durationDays } = currentUser;
-        let html = `<b>Tài khoản:</b> ${username}<br>`;
-        html += `<b>Loại:</b> ${durationDays ? (durationDays === 2 ? 'Dùng thử' : `${durationDays} ngày`) : 'Vô hạn'}<br>`;
-        html += `<b>Ngày kích hoạt:</b> ${new Date(activationTime).toLocaleDateString('vi-VN')}<br>`;
+        let h = `<b>Tài khoản:</b> ${username}<br><b>Loại:</b> ${durationDays ? (durationDays===2?'Dùng thử':`${durationDays} ngày`) : 'Vô hạn'}<br>`;
+        h += `<b>Ngày kích hoạt:</b> ${new Date(activationTime).toLocaleDateString('vi-VN')}<br>`;
         if (expiryTime) {
-          html += `<b>Ngày hết hạn:</b> ${new Date(expiryTime).toLocaleDateString('vi-VN')}<br>`;
-          const remainingMs = expiryTime - Date.now();
-          if (remainingMs <= 0) {
-            html += '<span style="color:red;"><b>Đã hết hạn!</b></span>';
-          } else {
-            const days = Math.floor(remainingMs / 86400000);
-            const hours = Math.floor((remainingMs % 86400000) / 3600000);
-            html += `<b>Thời gian còn lại:</b> ${days} ngày ${hours} giờ`;
-            if (days < 3) html += ' <span style="color:orange;">⚠️ Sắp hết hạn</span>';
-          }
-        } else {
-          html += '<b>Thời hạn:</b> Không giới hạn';
-        }
-        infoDiv.innerHTML = html;
+          const rm = expiryTime - Date.now();
+          h += `<b>Ngày hết hạn:</b> ${new Date(expiryTime).toLocaleDateString('vi-VN')}<br>`;
+          if (rm <= 0) h += '<span style="color:red;"><b>Đã hết hạn!</b></span>';
+          else { const days = Math.floor(rm/86400000), hrs = Math.floor((rm%86400000)/3600000); h += `<b>Còn lại:</b> ${days}d ${hrs}h`; if (days<3) h += ' ⚠️'; }
+        } else h += '<b>Thời hạn:</b> Không giới hạn';
+        d.innerHTML = h;
       }
-      function checkExpiryLoop() {
-        if (!currentUser || !currentUser.expiryTime) return;
-        if (Date.now() > currentUser.expiryTime) {
-          toast('⏳ Tài khoản đã hết hạn, vui lòng đăng xuất');
-          doLogout();
-        }
-      }
-      function doLogout() {
-        localStorage.removeItem('bida_auth_token');
-        sessionStorage.removeItem('bida_auth_token');
-        currentUser = null;
-        showLoginPage();
-      }
-      function showLoginPage() {
-        $('#loginPage').classList.remove('fade-out');
-        document.body.classList.add('logged-out');
-        $('.app-container').style.display = 'none';
-      }
-      function hideLoginPage(callback) {
-        $('#loginPage').classList.add('fade-out');
-        setTimeout(() => {
-          document.body.classList.remove('logged-out');
-          $('.app-container').style.display = '';
-          if (callback) callback();
-        }, 500);
-      }
+      function checkExpiryLoop() { if (currentUser?.expiryTime && Date.now() > currentUser.expiryTime) { toast(t('toastExpired')); doLogout(); } }
+      function doLogout() { localStorage.removeItem('bida_auth_token'); sessionStorage.removeItem('bida_auth_token'); currentUser = null; showLoginPage(); }
+      function showLoginPage() { $('#loginPage').classList.remove('fade-out'); document.body.classList.add('logged-out'); $('.app-container').style.display = 'none'; }
+      function hideLoginPage(cb) { $('#loginPage').classList.add('fade-out'); setTimeout(() => { document.body.classList.remove('logged-out'); $('.app-container').style.display = ''; if (cb) cb(); }, 500); }
+
+      // ==================== EVENT BINDINGS ====================
       $('#loginBtn').addEventListener('click', function(e) {
         createRipple(e, this);
-        const username = $('#loginUsername').value.trim();
-        const password = $('#loginPassword').value;
-        const user = USERS.find(u => u.username === username && u.password === password);
-        if (!user) {
-          toast('❌ Sai tên đăng nhập hoặc mật khẩu');
-          return;
-        }
-        if (isAccountExpired(username)) {
-          toast('⏳ Tài khoản đã hết hạn, không thể đăng nhập');
-          return;
-        }
-        const token = generateToken(username, password);
-        if ($('#rememberMe').checked) localStorage.setItem('bida_auth_token', token);
-        else sessionStorage.setItem('bida_auth_token', token);
-        saveActivation(username);
-        currentUser = loadCurrentUserFromToken();
-        hideLoginPage(() => {
-          initApp();
-          telegramNotify('🔐 ĐĂNG NHẬP', `Tài khoản: ${username}\nThiết bị: ${deviceInfo.os}\nTrình duyệt: ${deviceInfo.browser}`);
-          if (shopName === 'BIDA PRO' && !localStorage.getItem('bida_shop_name_set')) {
-            setTimeout(() => $('#firstShopNameModal').classList.add('show'), 600);
-          }
-        });
+        const u = $('#loginUsername').value.trim(), p = $('#loginPassword').value;
+        const user = USERS.find(x => x.username === u && x.password === p);
+        if (!user) return toast(t('toastLoginFail'));
+        if (isAccountExpired(u)) return toast(t('toastExpired'));
+        const token = generateToken(u, p);
+        if ($('#rememberMe').checked) localStorage.setItem('bida_auth_token', token); else sessionStorage.setItem('bida_auth_token', token);
+        saveActivation(u); currentUser = loadCurrentUserFromToken();
+        hideLoginPage(() => { initApp(); telegramNotify('🔐 ĐĂNG NHẬP', `Tài khoản: ${u}`); if (shopName==='BIDA PRO' && !localStorage.getItem('bida_shop_name_set')) setTimeout(() => $('#firstShopNameModal').classList.add('show'), 600); });
       });
-      $('#togglePassword').addEventListener('click', function() {
-        const input = $('#loginPassword');
-        const icon = this.querySelector('i');
-        if (input.type === 'password') { input.type = 'text'; icon.classList.remove('fa-eye'); icon.classList.add('fa-eye-slash'); }
-        else { input.type = 'password'; icon.classList.remove('fa-eye-slash'); icon.classList.add('fa-eye'); }
-      });
-      $('#saveFirstShopNameBtn').addEventListener('click', () => {
-        const newName = $('#firstShopNameInput').value.trim();
-        if (!newName) { toast('❌ Vui lòng nhập tên quán'); return; }
-        shopName = newName;
-        saveAll();
-        updateShopDisplay();
-        localStorage.setItem('bida_shop_name_set', 'true');
-        $('#firstShopNameModal').classList.remove('show');
-        toast('✅ Đã lưu tên quán');
-        telegramNotify('🏪 THIẾT LẬP TÊN QUÁN', `Tên quán: ${shopName}`);
-      });
-      $('#firstShopNameModal').addEventListener('click', function(e) { if (e.target === this) this.classList.remove('show'); });
-
-      function showConfirm(message, onYes) {
-        $('#confirmMessage').textContent = message;
-        $('#confirmModal').classList.add('show');
-        const yesBtn = $('#confirmYesBtn');
-        const noBtn = $('#confirmNoBtn');
-        const handlerYes = () => { $('#confirmModal').classList.remove('show'); yesBtn.removeEventListener('click', handlerYes); noBtn.removeEventListener('click', handlerNo); onYes(); };
-        const handlerNo = () => { $('#confirmModal').classList.remove('show'); yesBtn.removeEventListener('click', handlerYes); noBtn.removeEventListener('click', handlerNo); };
-        yesBtn.addEventListener('click', handlerYes);
-        noBtn.addEventListener('click', handlerNo);
-      }
-      $('#confirmModal').addEventListener('click', function(e) { if (e.target === this) this.classList.remove('show'); });
-      function showRenameModal(oldName, onSave) {
-        $('#renameTableInput').value = oldName;
-        $('#renameTableModal').classList.add('show');
-        const saveBtn = $('#saveRenameTableBtn');
-        const cancelBtn = $('#cancelRenameTableBtn');
-        const handlerSave = () => { const newName = $('#renameTableInput').value.trim(); if (!newName) { toast('❌ Tên không được để trống'); return; } $('#renameTableModal').classList.remove('show'); saveBtn.removeEventListener('click', handlerSave); cancelBtn.removeEventListener('click', handlerCancel); onSave(newName); };
-        const handlerCancel = () => { $('#renameTableModal').classList.remove('show'); saveBtn.removeEventListener('click', handlerSave); cancelBtn.removeEventListener('click', handlerCancel); };
-        saveBtn.addEventListener('click', handlerSave);
-        cancelBtn.addEventListener('click', handlerCancel);
-      }
-      $('#renameTableModal').addEventListener('click', function(e) { if (e.target === this) this.classList.remove('show'); });
-
-      // Hiển thị trang giới thiệu mới khi click vào dòng chữ "Biết thêm về Quản Lý Bida Pro"
-      $('#showAboutLoginLink').addEventListener('click', () => {
-        $('#aboutLoginPage').classList.add('show');
-      });
-      $('#closeAboutLoginBtn').addEventListener('click', () => {
-        $('#aboutLoginPage').classList.remove('show');
-      });
-      $('#aboutLoginPage').addEventListener('click', function(e) { if (e.target === this) this.classList.remove('show'); });
+      $('#togglePassword').addEventListener('click', function() { const i = $('#loginPassword'), ic = this.querySelector('i'); if (i.type==='password') { i.type='text'; ic.classList.replace('fa-eye','fa-eye-slash'); } else { i.type='password'; ic.classList.replace('fa-eye-slash','fa-eye'); } });
+      $('#saveFirstShopNameBtn').addEventListener('click', () => { const n = $('#firstShopNameInput').value.trim(); if (!n) return toast('❌ Nhập tên'); shopName = n; saveAll(); updateShopDisplay(); localStorage.setItem('bida_shop_name_set','true'); $('#firstShopNameModal').classList.remove('show'); toast(t('toastShopNameSaved')); });
+      $('#logoutBtn').addEventListener('click', () => { doLogout(); });
+      $('#langSelect').addEventListener('change', function() { applyLanguage(this.value); });
+      $('#showAboutLoginLink').addEventListener('click', () => $('#aboutLoginPage').classList.add('show'));
+      $('#closeAboutLoginBtn').addEventListener('click', () => $('#aboutLoginPage').classList.remove('show'));
+      $$('.nav-item').forEach(b => b.addEventListener('click', function(e) { createRipple(e, this); navigateTo(this.dataset.page); }));
+      $('#btnAbout').addEventListener('click', () => navigateTo('about'));
+      $('#btnBackFromAbout').addEventListener('click', () => navigateTo('home'));
+      $('#toggleCompactBtn').addEventListener('click', () => { compactMode = !compactMode; document.body.classList.toggle('compact-mode', compactMode); $('#compactLabel').textContent = t(compactMode?'expand':'compact'); saveAll(); renderAllTables(); });
+      $('#applyFilterBtn').addEventListener('click', () => renderHistory($('#filterTableSelect').value));
+      $('#exportTxtBtn').addEventListener('click', () => { let c='LỊCH SỬ\n'; history.forEach(h => c+=`Bàn ${h.tableId} | ${fmtDate(h.startTime)} -> ${fmtDate(h.endTime)} | ${fmtTime(h.duration)} | Giờ:${fmtMoney(h.priceTime)} | Tổng:${fmtMoney(h.total)}\n`); const b=new Blob([c],{type:'text/plain'}); const a=document.createElement('a'); a.href=URL.createObjectURL(b); a.download='history.txt'; a.click(); });
+      $('#exportCsvBtn').addEventListener('click', () => { let c='Bàn,Bắt đầu,Kết thúc,Giờ,Tiền giờ,Tổng\n'; history.forEach(h => c+=`${h.tableId},"${fmtDate(h.startTime)}","${fmtDate(h.endTime)}",${fmtTime(h.duration)},${h.priceTime},${h.total}\n`); const b=new Blob([c],{type:'text/csv'}); const a=document.createElement('a'); a.href=URL.createObjectURL(b); a.download='history.csv'; a.click(); });
+      $('#deleteHistoryBtn').addEventListener('click', () => $('#deleteModal').classList.add('show'));
+      $('#cancelDeleteBtn').addEventListener('click', () => $('#deleteModal').classList.remove('show'));
+      $('#confirmDeleteBtn').addEventListener('click', () => { if ($('#deletePass').value===DELETE_PASS) { history=[]; saveAll(); renderHistory(); renderRevenue(); $('#deleteModal').classList.remove('show'); toast(t('toastHistoryDeleted')); } else toast('❌ Sai mật khẩu'); });
+      $('#confirmQrBtn').addEventListener('click', () => { finalizePayment('QR Bank'); $('#qrModal').classList.remove('show'); });
+      $('#closeQrBtn').addEventListener('click', () => { $('#qrModal').classList.remove('show'); $('#checkoutModal').classList.add('show'); });
+      $('#themeSelect').addEventListener('change', function() { applyTheme(this.value); });
+      $('#glassToggle').addEventListener('change', function() { document.body.classList.toggle('glass-mode', this.checked); localStorage.setItem('bida_pro_glass', this.checked); });
+      $('#spaceToggle').addEventListener('change', function() { document.body.classList.toggle('space-bg', this.checked); $('#starsCanvas').style.display = this.checked ? 'block' : 'none'; localStorage.setItem('bida_pro_space', this.checked); if (this.checked) initStars(); });
+      $('#saveShopNameBtn').addEventListener('click', () => { shopName = $('#shopNameInput').value.trim() || 'BIDA PRO'; saveAll(); updateShopDisplay(); toast(t('toastShopNameSaved')); });
+      $('#saveRateBtn').addEventListener('click', () => { const v = parseInt($('#hourlyRateInput').value); if (!isNaN(v) && v >= 1000) { hourlyRate = v; saveAll(); updateShopDisplay(); toast(t('toastRateSaved')); } });
+      $('#addTableBtn').addEventListener('click', addNewTable);
+      $('#openTableManagerBtn').addEventListener('click', openTableManagerModal);
+      $('#closeTableManagerBtn').addEventListener('click', () => $('#tableManagerModal').classList.remove('show'));
+      $('#openMenuManagerBtn').addEventListener('click', () => { renderMenuManagerList(); $('#menuManagerModal').classList.add('show'); });
+      $('#closeMenuManagerBtn').addEventListener('click', () => $('#menuManagerModal').classList.remove('show'));
+      $('#openAddMenuItemFromManager').addEventListener('click', () => { $('#menuManagerModal').classList.remove('show'); openMenuItemModal(-1); });
+      $('#saveMenuItemBtn').addEventListener('click', saveMenuItem);
+      $('#cancelMenuItemBtn').addEventListener('click', () => $('#menuItemModal').classList.remove('show'));
+      function renderMenuManagerList() { const c = $('#menuManagerList'); c.innerHTML = menu.map((m,i) => `<div class="stat-card" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;"><span>${m.icon} ${m.name} - <strong>${fmtMoney(m.price)}</strong></span><div><button class="edit-menu-btn warning" data-index="${i}"><i class="fas fa-edit"></i></button><button class="delete-menu-btn danger" data-index="${i}"><i class="fas fa-trash"></i></button></div></div>`).join(''); c.querySelectorAll('.edit-menu-btn').forEach(b => b.addEventListener('click', () => openMenuItemModal(+b.dataset.index))); c.querySelectorAll('.delete-menu-btn').forEach(b => b.addEventListener('click', () => { menu.splice(+b.dataset.index,1); saveAll(); renderMenuManagerList(); renderMenuPage(); renderAllTables(); })); }
+      function showConfirm(msg, cb) { $('#confirmMessage').textContent = msg; $('#confirmModal').classList.add('show'); const y = $('#confirmYesBtn'), n = $('#confirmNoBtn'); const hy = () => { $('#confirmModal').classList.remove('show'); y.removeEventListener('click', hy); n.removeEventListener('click', hn); cb(); }; const hn = () => { $('#confirmModal').classList.remove('show'); y.removeEventListener('click', hy); n.removeEventListener('click', hn); }; y.addEventListener('click', hy); n.addEventListener('click', hn); }
+      function showRenameModal(old, cb) { $('#renameTableInput').value = old; $('#renameTableModal').classList.add('show'); const s = $('#saveRenameTableBtn'), c = $('#cancelRenameTableBtn'); const hs = () => { const nv = $('#renameTableInput').value.trim(); if (!nv) return; $('#renameTableModal').classList.remove('show'); s.removeEventListener('click', hs); c.removeEventListener('click', hc); cb(nv); }; const hc = () => { $('#renameTableModal').classList.remove('show'); s.removeEventListener('click', hs); c.removeEventListener('click', hc); }; s.addEventListener('click', hs); c.addEventListener('click', hc); }
+      function initStars() { const cv = $('#starsCanvas'), ctx = cv.getContext('2d'); let stars = []; function resize() { cv.width = innerWidth; cv.height = innerHeight; stars = Array.from({length:80}, () => ({x:Math.random()*cv.width, y:Math.random()*cv.height, r:Math.random()*1.8+0.5, speed:Math.random()*0.3+0.1})); } resize(); window.addEventListener('resize', resize); function animate() { if (!document.body.classList.contains('space-bg')) return; ctx.clearRect(0,0,cv.width,cv.height); ctx.fillStyle='#fff'; stars.forEach(s => { ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,Math.PI*2); ctx.fill(); s.y-=s.speed; if (s.y<-5) { s.y=cv.height+5; s.x=Math.random()*cv.width; } }); requestAnimationFrame(animate); } animate(); }
+      function initLoginStars() { const cv = $('#loginStarsCanvas'), ctx = cv.getContext('2d'); let stars = []; function resize() { cv.width = innerWidth; cv.height = innerHeight; stars = Array.from({length:50}, () => ({x:Math.random()*cv.width, y:Math.random()*cv.height, r:Math.random()*1.5+0.5, speed:Math.random()*0.2+0.05})); } resize(); window.addEventListener('resize', resize); function animate() { if (!$('#loginPage') || $('#loginPage').classList.contains('fade-out')) return; ctx.clearRect(0,0,cv.width,cv.height); ctx.fillStyle='white'; stars.forEach(s => { ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,Math.PI*2); ctx.fill(); s.y-=s.speed; if (s.y<-5) { s.y=cv.height+5; s.x=Math.random()*cv.width; } }); requestAnimationFrame(animate); } animate(); }
 
       function initApp() {
-        loadAll();
-        updateShopDisplay();
-        renderAllTables();
-        renderHistory();
-        renderRevenue();
-        renderMenuPage();
+        loadAll(); updateShopDisplay(); renderAllTables(); renderHistory(); renderRevenue(); renderMenuPage();
         if (compactMode) document.body.classList.add('compact-mode');
-        const savedTheme = localStorage.getItem('bida_pro_theme') || 'dark';
-        $('#themeSelect').value = savedTheme;
-        applyTheme(savedTheme);
-        const glassOn = localStorage.getItem('bida_pro_glass') === 'true';
-        $('#glassToggle').checked = glassOn; if (glassOn) document.body.classList.add('glass-mode');
-        const spaceOn = localStorage.getItem('bida_pro_space') === 'true';
-        $('#spaceToggle').checked = spaceOn;
-        if (spaceOn) { document.body.classList.add('space-bg'); $('#starsCanvas').style.display = 'block'; initStars(); }
-        updateDebtorCount();
-        navigateTo('home');
-        showGreetingModal();
-        setInterval(checkExpiryLoop, 30000);
+        $('#themeSelect').value = localStorage.getItem('bida_pro_theme') || 'dark'; applyTheme($('#themeSelect').value);
+        $('#glassToggle').checked = localStorage.getItem('bida_pro_glass') === 'true'; if ($('#glassToggle').checked) document.body.classList.add('glass-mode');
+        $('#spaceToggle').checked = localStorage.getItem('bida_pro_space') === 'true'; if ($('#spaceToggle').checked) { document.body.classList.add('space-bg'); $('#starsCanvas').style.display='block'; initStars(); }
+        $('#langSelect').value = currentLang;
+        updateDebtorCount(); navigateTo('home'); showGreetingModal(); setInterval(checkExpiryLoop, 30000);
+        refreshUITexts();
       }
-      loadDeviceInfo();
-      const savedTheme = localStorage.getItem('bida_pro_theme') || 'dark';
-      applyTheme(savedTheme);
+      loadDeviceInfo(); applyTheme(localStorage.getItem('bida_pro_theme')||'dark');
       initLoginStars();
-      if (checkLogin()) {
-        currentUser = loadCurrentUserFromToken();
-        hideLoginPage(() => initApp());
-      } else {
-        showLoginPage();
-      }
+      if (checkLogin()) { currentUser = loadCurrentUserFromToken(); hideLoginPage(() => initApp()); }
+      else showLoginPage();
     })();
   </script>
 </body>
