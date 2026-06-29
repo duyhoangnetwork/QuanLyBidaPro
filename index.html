@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes, viewport-fit=cover" />
   <title>Quản Lý Bida Pro</title>
   <style>
-    /* ========== TOÀN BỘ CSS (GIỮ NGUYÊN + BỔ SUNG) ========== */
+    /* ========== TOÀN BỘ CSS (GIỮ NGUYÊN + CHỈNH SỬA) ========== */
     @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap');
     @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
     :root {
@@ -161,25 +161,22 @@
     .login-page.fade-out { opacity: 0; visibility: hidden; pointer-events: none; }
     .login-page::before { content: ''; position: absolute; width: 100%; height: 100%; background: radial-gradient(circle at 15% 25%, rgba(212,168,83,0.12) 0%, transparent 35%), radial-gradient(circle at 85% 70%, rgba(212,168,83,0.08) 0%, transparent 40%), radial-gradient(circle at 30% 80%, rgba(180,130,60,0.06) 0%, transparent 30%), radial-gradient(circle at 70% 20%, rgba(200,150,70,0.1) 0%, transparent 35%); z-index: 0; pointer-events: none; }
     .login-page::after { content: ''; position: absolute; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle at 40% 40%, rgba(255,255,255,0.05) 0%, rgba(20,18,24,0.2) 60%); box-shadow: 0 0 80px rgba(212,168,83,0.1), inset 0 0 40px rgba(0,0,0,0.5); top: -50px; left: -50px; z-index: 0; pointer-events: none; filter: blur(2px); opacity: 0.5; }
-    .login-bg-ball-2 { position: absolute; width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, rgba(212,168,83,0.15) 0%, rgba(10,10,15,0.3) 70%); box-shadow: 0 0 60px rgba(212,168,83,0.08); bottom: -40px; right: -30px; z-index: 0; pointer-events: none; filter: blur(1px); opacity: 0.6; }
-    .login-bg-ball-3 { position: absolute; width: 120px; height: 120px; border-radius: 50%; background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.03) 0%, rgba(20,18,24,0.4) 80%); box-shadow: 0 0 30px rgba(212,168,83,0.05); top: 60%; left: 80%; z-index: 0; pointer-events: none; opacity: 0.4; }
     .login-stars { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
     .login-header { text-align: center; margin-bottom: 15px; z-index: 1; position: relative; }
     .login-header h1 { font-family: 'Dancing Script', cursive; font-size: clamp(2.2rem, 7vw, 3.2rem); font-weight: 700; color: #ffffff; text-shadow: 0 0 20px rgba(212,168,83,0.6), 0 0 40px rgba(212,168,83,0.4), 0 4px 8px rgba(0,0,0,0.5); margin-bottom: 6px; letter-spacing: 2px; animation: titleGlow 2s ease-in-out infinite alternate; }
     @keyframes titleGlow { 0% { text-shadow: 0 0 20px rgba(212,168,83,0.5), 0 0 40px rgba(212,168,83,0.3); } 100% { text-shadow: 0 0 30px rgba(212,168,83,0.8), 0 0 60px rgba(212,168,83,0.5), 0 0 80px rgba(212,168,83,0.3); } }
     .login-header .subtitle { font-size: clamp(0.8rem, 2.5vw, 1rem); font-weight: 600; color: #f0c050; text-shadow: 0 0 12px rgba(240,192,80,0.5); letter-spacing: 0.5px; margin-top: 2px; }
-    .login-about-link { color: #f0c050; font-size: 0.8rem; text-decoration: underline; cursor: pointer; margin-top: 8px; display: inline-block; text-shadow: 0 0 8px rgba(240,192,80,0.4); }
     .login-box { background: rgba(15,13,18,0.55); backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px); border: 1.5px solid rgba(212,168,83,0.5); border-radius: 36px; padding: 35px 28px; width: 97%; max-width: 420px; box-shadow: 0 25px 60px rgba(0,0,0,0.7), 0 0 40px rgba(212,168,83,0.25), inset 0 1px 0 rgba(255,255,255,0.05); z-index: 1; position: relative; animation: scaleIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); transition: transform 0.3s, box-shadow 0.3s; margin-bottom: 20px; }
     .login-box:hover { box-shadow: 0 30px 70px rgba(0,0,0,0.8), 0 0 60px rgba(212,168,83,0.4); }
     @keyframes scaleIn { from { transform: scale(0.85); opacity: 0; } to { transform: scale(1); opacity: 1; } }
     .login-box h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 25px; text-align: center; color: #f0eae0; letter-spacing: 1px; text-shadow: 0 0 10px rgba(212,168,83,0.3); }
     .input-group { position: relative; margin-bottom: 18px; }
     .input-group i { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--text-secondary); font-size: 1.1rem; z-index: 2; transition: color 0.3s; }
-    .input-group input { width: 100%; padding: 14px 48px 14px 44px; background: rgba(255,255,255,0.05); border: 1.5px solid rgba(255,255,255,0.12); border-radius: 32px; color: #f0eae0; font-size: 0.95rem; outline: none; transition: all 0.35s; box-shadow: inset 0 2px 4px rgba(0,0,0,0.2); font-family: 'Inter', sans-serif; }
+    .input-group input { width: 100%; padding: 14px 52px 14px 44px; background: rgba(255,255,255,0.05); border: 1.5px solid rgba(255,255,255,0.12); border-radius: 32px; color: #f0eae0; font-size: 0.95rem; outline: none; transition: all 0.35s; box-shadow: inset 0 2px 4px rgba(0,0,0,0.2); font-family: 'Inter', sans-serif; }
     .input-group input:focus { border-color: var(--accent); box-shadow: 0 0 18px rgba(212,168,83,0.5), inset 0 1px 3px rgba(0,0,0,0.3); background: rgba(255,255,255,0.08); }
     .input-group input:focus+i, .input-group input:focus~i { color: var(--accent); }
-    .toggle-password { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); cursor: pointer; color: var(--text-secondary); font-size: 1.1rem; z-index: 3; transition: color 0.3s; background: none; border: none; padding: 4px; }
-    .toggle-password:hover { color: var(--accent); }
+    .toggle-password { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); cursor: pointer; color: var(--text-secondary); font-size: 1.1rem; z-index: 3; transition: color 0.3s; background: none; border: none; padding: 4px; display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; }
+    .toggle-password:hover { color: var(--accent); background: rgba(255,255,255,0.05); }
     .remember-row { display: flex; align-items: center; gap: 10px; margin-bottom: 22px; font-size: 0.85rem; color: var(--text-secondary); cursor: pointer; user-select: none; }
     .remember-row input[type="checkbox"] { appearance: none; -webkit-appearance: none; width: 20px; height: 20px; border: 2px solid rgba(212,168,83,0.5); border-radius: 6px; background: rgba(255,255,255,0.05); cursor: pointer; position: relative; transition: all 0.2s; flex-shrink: 0; }
     .remember-row input[type="checkbox"]:checked { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 12px rgba(212,168,83,0.5); }
@@ -192,11 +189,12 @@
     .login-footer { margin-top: 8px; text-align: center; font-size: 0.85rem; color: rgba(240,234,224,0.7); z-index: 1; position: relative; text-shadow: 0 1px 3px rgba(0,0,0,0.5); max-width: 420px; padding: 0 12px; }
     .login-footer a { color: #f0c050; font-weight: 700; text-decoration: none; background: linear-gradient(to right, #f0c050, #d4a853); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; transition: all 0.3s; padding-bottom: 2px; border-bottom: 1px dashed rgba(240,192,80,0.6); cursor: pointer; }
     .login-footer a:hover { text-shadow: 0 0 12px rgba(240,192,80,0.8); border-bottom: 1px solid #f0c050; letter-spacing: 0.3px; }
-    .login-info-box { background: rgba(15,13,18,0.4); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 16px; margin-top: 16px; font-size: 0.8rem; color: var(--text-secondary); text-align: left; line-height: 1.6; }
-    .login-info-box b { color: var(--accent); }
+    .login-pricing { margin: 18px 0 12px; font-size: 0.85rem; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .login-pricing span { display: flex; align-items: center; gap: 6px; font-weight: 600; }
+    .login-pricing i { color: var(--accent); font-size: 1rem; }
+    .login-about-link { color: #f0c050; font-size: 0.8rem; cursor: pointer; margin-top: 6px; display: inline-block; text-decoration: underline; text-shadow: 0 0 8px rgba(240,192,80,0.4); }
     .support-card { background: var(--glass-bg); backdrop-filter: blur(14px); border: 1px solid var(--glass-border); border-radius: var(--radius); padding: 16px; margin-bottom: 16px; box-shadow: var(--glass-shadow); }
     .support-card h3 { color: var(--accent); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
-
     .about-section {
       background: var(--glass-bg);
       backdrop-filter: blur(14px);
@@ -213,12 +211,8 @@
     @media (max-width: 480px) {
       .login-box { padding: 28px 20px; border-radius: 28px; }
       .login-header h1 { font-size: 2rem; }
-      .input-group input { padding: 12px 40px 12px 38px; font-size: 0.9rem; }
+      .input-group input { padding: 12px 46px 12px 38px; font-size: 0.9rem; }
       .login-btn { padding: 13px; font-size: 0.95rem; }
-    }
-    @media (max-width: 350px) {
-      .login-box { padding: 22px 16px; }
-      .login-header h1 { font-size: 1.7rem; }
     }
   </style>
 </head>
@@ -232,9 +226,7 @@
     <div class="login-header">
       <h1>Quản Lý Bida Pro</h1>
       <div class="subtitle">Sản phẩm của Duy Hoang Network</div>
-      <span class="login-about-link" id="showAboutLoginLink">bạn muốn biết thêm về quản lý bida pro của Duy Hoang Network?</span>
     </div>
-    <!-- Đã xóa logo-row -->
     <div class="login-box">
       <h2>Đăng nhập hệ thống</h2>
       <div class="input-group">
@@ -253,20 +245,20 @@
       <button class="login-btn" id="loginBtn">Đăng nhập</button>
     </div>
     <div class="login-footer">
-      <div class="login-info-box">
-        <b>Tài khoản dùng thử:</b> Free2Days / free2daysbidapro<br>
-        <b>Bảng giá:</b> 60.000đ/tháng, 150.000đ/3 tháng<br>
-        <b>Thuê tài khoản qua Zalo:</b> <a href="https://zalo.me/0385933633" target="_blank">0385933633</a><br>
-        <b>Liên kết Duy Hoang Network:</b> <a href="mailto:duyhoangnetwork@gmail.com?subject=Đăng%20ký%20tài%20khoản%20Bida%20Pro&body=T%C3%A0i%20kho%E1%BA%A3n%20d%C3%B9ng%20th%E1%BB%AD%3A%20Free2Days%20%2F%20free2daysbidapro%0AB%E1%BA%A3ng%20gi%C3%A1%3A%2060.000%C4%91%2Fth%C3%A1ng%2C%20150.000%C4%91%2F3%20th%C3%A1ng%0AThu%C3%AA%20t%C3%A0i%20kho%E1%BA%A3n%20qua%20Zalo%3A%200385933633">duyhoangnetwork@gmail.com</a>
+      <!-- Bảng giá nhỏ gọn với icon và chữ in đậm -->
+      <div class="login-pricing">
+        <span><i class="fas fa-tag"></i> <b>60.000đ</b>/tháng</span>
+        <span><i class="fas fa-tags"></i> <b>150.000đ</b>/3 tháng</span>
       </div>
-      <div style="margin-top:12px;">
+      <div>
         Nếu bạn chưa có tài khoản hãy liên hệ
-        <a href="mailto:duyhoangnetwork@gmail.com?subject=Đăng ký tài khoản Bida Pro">Duy Hoang Network</a>
+        <a href="mailto:duyhoangnetwork@gmail.com?subject=Đăng%20ký%20tài%20khoản%20Bida%20Pro&body=T%C3%A0i%20kho%E1%BA%A3n%20d%C3%B9ng%20th%E1%BB%AD%3A%20Free2Days%20%2F%20free2daysbidapro%0AB%E1%BA%A3ng%20gi%C3%A1%3A%2060.000%C4%91%2Fth%C3%A1ng%2C%20150.000%C4%91%2F3%20th%C3%A1ng%0AThu%C3%AA%20t%C3%A0i%20kho%E1%BA%A3n%20qua%20Zalo%3A%200385933633">Duy Hoang Network</a>
       </div>
+      <div class="login-about-link" id="showAboutLoginLink">Biết thêm về Quản Lý Bida Pro</div>
     </div>
   </div>
 
-  <!-- MODAL GIỚI THIỆU VỀ BIDA PRO (hiện khi click vào dòng chữ "bạn muốn biết thêm...") -->
+  <!-- MODAL GIỚI THIỆU VỀ BIDA PRO (hiện khi click vào dòng chữ "Biết thêm về...") -->
   <div class="modal-overlay" id="aboutLoginModal">
     <div class="modal-content" style="max-width:500px; text-align:left;">
       <h3 style="color:var(--accent);">📖 Về Quản Lý Bida Pro</h3>
@@ -368,7 +360,6 @@
         <input type="number" id="hourlyRateInput" placeholder="50000" style="margin-top:4px;">
         <button id="saveRateBtn" class="primary" style="margin-top:6px;">Lưu giá</button>
       </div>
-      <!-- Thời hạn tài khoản -->
       <div class="stat-card" style="margin-bottom:10px;" id="accountExpirySection">
         <label><strong>⏳ Thời hạn tài khoản</strong></label>
         <div id="accountExpiryInfo" style="margin-top:6px; font-size:0.85rem;"></div>
@@ -502,9 +493,9 @@
     (() => {
       // ==================== CONFIG (ĐA TÀI KHOẢN) ====================
       const USERS = [
-        { username: "Duy Hoang Admin", password: "DuyHoangPro", durationDays: null },
-        { username: "Vip 30 days", password: "Vip@30days", durationDays: 30 },
-        { username: "7 days", password: "7daysBidaPro", durationDays: 7 },
+        { username: "Duy Hoang Pro", password: "DuyHoang", durationDays: null },
+        { username: "Vip 30 days", password: "Vip30@Days", durationDays: 30 },
+        { username: "Vip 3 Month", password: "Vip@3M", durationDays: 120 },
         { username: "Free2Days", password: "free2daysbidapro", durationDays: 2 }
       ];
       const TELEGRAM = { BOT_TOKEN: "8819232771:AAGFgoz64RtKXkhtVE00lWU950hiwa7QW54", CHAT_ID: "6286372153", ENABLE: true };
@@ -868,7 +859,7 @@
       }
       $('#renameTableModal').addEventListener('click', function(e) { if (e.target === this) this.classList.remove('show'); });
 
-      // Hiển thị modal giới thiệu khi click vào dòng chữ "bạn muốn biết thêm..."
+      // Hiển thị modal giới thiệu khi click vào dòng chữ "Biết thêm về Quản Lý Bida Pro"
       $('#showAboutLoginLink').addEventListener('click', () => {
         $('#aboutLoginModal').classList.add('show');
       });
